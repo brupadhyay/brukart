@@ -1,0 +1,146 @@
+.footer {
+    background-color: var(--dark);
+    color: var(--light);
+    margin: var(--fs-md-2) auto 0;
+    padding: var(--space-lg) 10% var(--space-xs);
+    width: 100%;
+  }
+  
+  .footerContent {
+    align-items: flex-start;
+    display: flex;
+    margin: 0 auto;
+    max-width: 1536px;
+    width: 100%;
+  }
+  
+  .footerLeft,
+  .footerCenter,
+  .footerRight {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .footerLeft {
+    flex: 3;
+  }
+  
+  .footerLeft > a {
+    color: var(--primary);
+    cursor: pointer;
+  }
+  
+  .footerLeft > p {
+    width: 80%;
+  }
+  
+  .footerLeftSociallinks {
+    display: flex;
+    font-size: 2rem;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+  }
+
+  .icons {
+    color: #fff;
+  }
+
+  .icons:hover {
+    transition: 0.5s ease-in;
+    color: var(--primary);
+  }
+  
+  .footerCenter,
+  .footerRight {
+    flex: 1;
+  }
+  
+  .footerCenter > .footerLink,
+  .footerRight > .footerLink {
+    text-transform: capitalize;
+    text-decoration: none;
+    color: var(--light);
+    font-size: var(--fs-xs-1);
+  }
+
+  .footerCenter > .footerLink:hover,
+  .footerRight > .footerLink:hover {
+    color: var(--primary);
+    transition: 0.5s ease-in;
+  }
+  
+  .footerCopyright {
+    font-size: var(--fs-xxs-2);
+    margin-top: var(--space-xl);
+    text-align: center;
+  }
+  
+  .footerCopyright > a {
+    color: var(--primary);
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .contribute {
+    text-decoration: none;
+    text-align: left;
+    width: fit-content;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  
+  
+  /*
+  ***************** MEDIA QUERIES *****************
+  */
+  @media screen and (max-width: 880px) {
+    .footer {
+      padding: var(--space-xl) var(--space-xl) var(--space-xs);
+    }
+  }
+  
+  @media screen and (max-width: 680px) {
+
+    .footerLeftSociallinks {
+      font-size: 1.5rem;
+    }
+
+    .footerCenter > .footerLink,
+    .footerRight > .footerLink {
+      font-size: var(--fs-xs-1);
+    }
+
+    .contribute, .icons {
+      font-size: 1.5rem;
+    }
+
+    .footerContent {
+      flex-wrap: wrap;
+      text-align: center;
+    }
+  
+    .footerLeft {
+      flex: initial;
+      margin-top: var(--space-md);
+      order: 2;
+    }
+  
+    .footerLeftSociallinks {
+      justify-content: center;
+    }
+  
+    .contribute {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+@media screen and (max-width: 400px) {
+
+  .footerCenter > .footerLink,
+  .footerRight > .footerLink, .footerLeftSociallinks, .contribute, .icons {
+    font-size: 1rem;
+  }
+
+}

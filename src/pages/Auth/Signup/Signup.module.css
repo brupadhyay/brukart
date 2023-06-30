@@ -1,0 +1,52 @@
+.loginForm {
+    padding: 2rem 10%;
+    margin: 2rem 0;
+}
+
+.formContainer {    
+    display: flex;
+    flex-direction: column;
+    max-width: 24rem;
+    margin: auto;
+}
+
+.nameContainer {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.nameChild {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 50%;
+}
+
+.inputField {
+    display: flex;
+    gap: 0.25rem;
+    flex-direction: column;
+}
+
+.confirmPassword {
+    display: flex;
+    gap: 0.25rem;
+    flex-direction: column;
+    position: relative;
+}
+
+.passwordToggler {
+    background: transparent;
+    border: 0;
+    position: absolute;
+    right: 4px;
+    bottom: 0;
+}
+
+
+.formButtons {
+    padding: var(--pd-sm);
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}

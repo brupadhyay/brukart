@@ -1,0 +1,31 @@
+.loginForm {
+    padding: 2rem 10%;
+    margin: 2rem 0;
+}
+
+.formContainer {    
+    display: flex;
+    flex-direction: column;
+    max-width: 24rem;
+    margin: auto;
+}
+
+.inputEmail, .inputPassword {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.formButtons {
+    padding: var(--pd-sm);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.loginButton {
+    margin-right: var(--space-sm);
+}
+
+.guestButton {
+    margin-right: auto;
+}

@@ -1,0 +1,27 @@
+.categoryCarousel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.categoryCarousel > h5 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.categorySection {
+    cursor: pointer;
+    background-color: var(--blue-1);
+    border-radius: 1.5rem;
+    display: flex;
+    gap: 1.6rem;
+    height: 150px;
+    margin: 2.4rem auto 0;
+    overflow-x: auto;
+    padding: 1.6rem;
+}

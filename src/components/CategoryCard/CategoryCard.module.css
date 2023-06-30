@@ -1,0 +1,43 @@
+.categorycard {
+    border-radius: 1.5rem;
+    height: 100%;
+    min-width: 150px;
+    width: 100%;
+    position: relative;
+}
+
+.categoryname:hover {
+    color: var(--primary);
+    transition: 0.2s ease-in;
+}
+
+.categoryImage {
+    border-radius: 1.5rem;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+
+.categoryname {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    flex-wrap: wrap;
+    bottom: 0;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 540px) {
+    .categoryname {
+        font-size: 1rem;
+    }
+}

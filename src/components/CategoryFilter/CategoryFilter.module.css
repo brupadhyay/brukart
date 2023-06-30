@@ -1,0 +1,15 @@
+.checkbox {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    width: 100%;
+}
+
+
+.fieldset {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: space-between;
+    margin: 0 auto;
+}

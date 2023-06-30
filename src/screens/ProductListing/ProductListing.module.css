@@ -1,0 +1,56 @@
+.productPage {
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+}
+
+.productsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    row-gap: 1.5rem;
+    column-gap: 1.5rem;
+}
+
+.productCard {
+    cursor: pointer;
+    border: 1px solid lightgray;
+    border-radius: 0.5rem;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+    margin: 0.5rem;
+}
+
+.productImage {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.title {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.wishlistButton {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: transparent;
+    border: 0;
+}
+
+.wishlistButtonSpan {
+    font-size: 1.25rem;
+}
+
+.productCard .rating {
+    position: absolute;
+    left: 0;
+    top: 175px;
+}

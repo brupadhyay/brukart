@@ -1,0 +1,9 @@
+.dummyPrices {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.range > input {
+    width: 100%;
+}

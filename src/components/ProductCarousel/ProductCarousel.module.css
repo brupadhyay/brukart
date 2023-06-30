@@ -1,0 +1,40 @@
+.mainCarousel {
+    display: flex;
+    height: 350px;
+    position: relative;  
+    margin-top: 2rem;
+}
+
+.mainCarouselImage {
+    border-radius: 3.5rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    height: 100%;
+    cursor: pointer;
+    object-fit: cover;
+    width: 100%;
+}
+
+.mainCarouselCaption {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 0 3.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: var(--pd-md);    
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 700px) {
+    .mainCarouselCaption {
+        border-radius: 0 0 3.5rem 3.5rem;
+        width: 100%;
+    }
+
+    .mainCarousel {
+        width: 90%;
+        margin: 2.4rem auto;
+    }
+}

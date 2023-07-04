@@ -16,14 +16,27 @@ const Login = () => {
     password: "",
   });
 
+  const dummyUser = {
+    email: "lallanyadav@gmail.com",
+    password: "lallan",
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
 
     loginUser(userDetails.email, userDetails.password);
   };
 
+  const guesLoginHandler = (e) => {
+    e.preventDefault();
+    setUserDetails({
+      email: dummyUser.email,
+      password: dummyUser.password
+    });
+  }
+
   useEffect(() => {
-    if (token) {
+    if(token) {
       toastNotification("SUCCESS", 'Successfully Logged In!')
       navigate(location?.state?.from.pathname || "/");
     }
@@ -62,7 +75,8 @@ const Login = () => {
           </div>
         </main>
         <footer className={styles.formButtons}>
-          <button className={styles.guestButton}>guest login</button>
+          <button className={styles.guestButton}
+          onClick={guesLoginHandler}>guest login</button>
           <button className={styles.loginButton} type="submit">
             login
           </button>

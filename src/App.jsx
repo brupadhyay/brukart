@@ -1,13 +1,16 @@
-import { Routes, Route } from "react-router";
+import { Route, Routes } from "react-router";
 import "./App.css";
 
+import { ToastContainer } from "react-toastify";
+import { Footer, SingleProductPage } from "./components";
+import { Login, Signup } from "./pages";
 import { Landing } from "./screens/Landing";
 import MockAPI from "./screens/Mockman";
 import { Navbar } from "./screens/Navbar/Navbar";
 import { ProductListing } from "./screens/ProductListing/ProductListing";
-import { Footer, SingleProductPage } from "./components";
-import { Login, Signup } from "./pages";
-import { ToastContainer } from "react-toastify";
+import { Profile } from "./screens/Profile/Profile";
+import { PrivateRoutes } from "./constants/PrivateRoutes";
+import { Cart } from "./screens/Cart/Cart";
 
 function App() {
   return (
@@ -21,8 +24,23 @@ function App() {
         <Route path="/product/:productId" element={<SingleProductPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        {/* <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<Wishlist />} /> */}
+        {/* <Route path="/wishlist" element={<Wishlist />} /> */}
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoutes>
+              <Profile />
+            </PrivateRoutes>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <PrivateRoutes>
+              <Cart />
+            </PrivateRoutes>
+          }
+        />
       </Routes>
       <Footer />
     </div>

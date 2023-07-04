@@ -18,6 +18,12 @@ const ProductReducer = (state, action) => {
         ...state,
         products: action.payload,
       };
+    
+    case "ADD_TO_CART":
+      return {
+        ...state,
+        cart: action.payload
+      }
 
     case "CHANGE_FILTERS":
       return {

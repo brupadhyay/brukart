@@ -1,9 +1,11 @@
 import { createContext, useContext, useState } from "react";
 import { loginServices, signupServices } from "../../services/services";
+import { toastNotification } from "../../utils/toaster";
 
 const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
+
   const localStorageToken = JSON.parse(localStorage.getItem("login"));
 
   const [token, setToken] = useState(localStorageToken?.token);
@@ -63,13 +65,22 @@ const AuthContextProvider = ({ children }) => {
     }
   };
 
+
+  const logoutUser = () => {
+    localStorage.removeItem("login");
+    setToken(null);
+    setUser(null);
+    toastNotification("SUCCESS", "Logout Successful!")
+  }
+
   return (
     <AuthContext.Provider
       value={{
         signupUser,
         user,
         token,
-        loginUser
+        loginUser,
+        logoutUser
       }}
     >
       {children}

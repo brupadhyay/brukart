@@ -113,7 +113,7 @@ export const products = [
     discount: "30",
     isLatest: true,
     isTop: false,
-    rating: 4,
+    rating: 1.5,
     imageSrc:
       "https://res.cloudinary.com/dmlhtqirp/image/upload/v1686415172/BRUKart/among-us.jpg",
   },

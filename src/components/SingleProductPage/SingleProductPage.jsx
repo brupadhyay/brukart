@@ -81,18 +81,18 @@ const SingleProductPage = () => {
           <div className={styles.btnsWrapper}>
             <button
               className={`button btn-solid-dark ${styles.buyButton}`}
-              // onClick={() => {
-              //   if (authState.token) {
-              //     setItemAdded(true);
-              //     return addToCartHandler(
-              //       product,
-              //       cartDispatch,
-              //       authState.token
-              //     );
-              //   }
-              //   toast.warning("You're not logged in");
-              //   return authModalHandler("LOGIN");
-              // }}
+              onClick={() => {
+                // if (authState.token) {
+                //   setItemAdded(true);
+                //   return addToCartHandler(
+                //     product,
+                //     cartDispatch,
+                //     authState.token
+                //   );
+                // }
+                // toastNotification("WARNING", "You're not logged-in")
+                // navigate("/login")
+              }}
             >
               <FaShoppingCart />
               Add to cart

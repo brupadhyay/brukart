@@ -6,13 +6,13 @@ import styles from "./Navbar.module.css";
 import { useProduct } from "../../context/ProductContext/ProductContext";
 
 const Navbar = () => {
-  const { applyFilters } = useProduct();
+  const { applyFilters, state } = useProduct();
 
   const handleSearchProducts = (event) => {
     const name = event.target.name;
     const value = event.target.value;
 
-    applyFilters(name, value);
+    applyFilters(name, value.trim());
   };
 
   const getNavStyle = ({ isActive }) => {
@@ -27,7 +27,7 @@ const Navbar = () => {
           className={styles.logo}
           height="100%"
           width="20%"
-          src="https://res.cloudinary.com/dmlhtqirp/image/upload/v1688143234/BRUKart/logo-kart.png"
+          src="https://res.cloudinary.com/dmlhtqirp/image/upload/v1688201672/BRUKart/logo-kart.png"
           alt="logo-brukart"
         />
         <span className={styles.nomenclature}>
@@ -43,6 +43,7 @@ const Navbar = () => {
           type="text"
           name="searchValue"
           id="search"
+          value={state.filters.searchValue}
           placeholder="Search Products"
         />
       </div>
@@ -57,7 +58,7 @@ const Navbar = () => {
         <NavLink className={getNavStyle} to="/wishlist">
           <BsFillHeartFill />
         </NavLink>
-        <NavLink className={getNavStyle} to="/login">
+        <NavLink className={getNavStyle} to="/profile">
           <FaRegUserCircle />
         </NavLink>
       </div>

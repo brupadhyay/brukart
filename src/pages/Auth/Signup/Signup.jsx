@@ -84,29 +84,30 @@ const Signup = () => {
               required
             />
           </div>
-          <div className={styles.inputField}>
+          <div className={styles.passwordToggleParent}>
             <label htmlFor="password">Password</label>
             <input
-              type="password"
+              type={isPasswordVisible ? "text" : "password"}
               id="password"
               placeholder="*********"
               value={userDetails.password}
               onChange={(e) => setUserDetails({...userDetails, password: e.target.value})}
               required
             />
+            <button className={styles.passwordToggler} type="button" onClick={togglePasswordVisibility}>
+              {isPasswordVisible ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+            </button>
           </div>
-          <div className={styles.confirmPassword}>
+          <div className={styles.inputField}>
             <label htmlFor="confirm-password">Confirm Password </label>
             <input
               id="confirm-password"
-              type={isPasswordVisible ? "text" : "password"}
+              type="password"
               placeholder="*********"
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-            <button className={styles.passwordToggler} type="button" onClick={togglePasswordVisibility}>
-              {isPasswordVisible ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
-            </button>
+            
           </div>          
           {showPasswordError &&  <p>Entered passwords doesn't match</p> }
           <footer className={styles.formButtons}>

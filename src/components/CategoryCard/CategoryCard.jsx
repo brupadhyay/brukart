@@ -7,7 +7,7 @@ const CategoryCard = ({ imagesrc, categoryname }) => {
   const { applyFilters, state } = useProduct();
 
   const handleCategorySearch = () => {
-    applyFilters("category", [...state.filters.category, categoryname]);
+    applyFilters("category", [categoryname]);
     navigate("/products");
   }
 

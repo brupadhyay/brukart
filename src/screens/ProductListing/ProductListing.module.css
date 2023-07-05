@@ -165,3 +165,22 @@
     line-height: 1.2;
     width: 30px;
 }
+
+.gotocartBtn {
+    background-color: var(--green-2);
+    color: black;
+    font-weight: 600;
+    transition: background-color 0.3s ease-in;
+}
+
+.gotocartBtn:hover {
+    background-color: var(--success);
+}
+
+.wishlist {
+    color: var(--red-5);
+    background-color: initial;
+    border: 0;
+    font-size: 1.8rem;
+    padding-left: 0.5rem;
+}

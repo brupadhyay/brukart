@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
+import { makeServer } from "./server";
 
-import { ProductProvider } from "./context/ProductContext/ProductContext";
-import { AuthContextProvider } from "./context/AuthContext/auth-context";
+import App from "./App";
+import { AuthContextProvider, ProductProvider } from "./context/index";
+import "./index.css";
 
 // Call make Server
 makeServer();

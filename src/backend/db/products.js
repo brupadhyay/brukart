@@ -6,7 +6,7 @@
 
 export const products = [
   {
-    _id: 1,
+    _id: "1",
     title: "Fall Guys: Ultimate Knockout",
     desc: "a massively 60 multiplayer game",
     categoryName: ["arcade-and-puzzle"],
@@ -20,7 +20,7 @@ export const products = [
       "https://res.cloudinary.com/dmlhtqirp/image/upload/v1686415174/BRUKart/fall-guys.png",
   },
   {
-    _id: 2,
+    _id: "2",
     title: "BATTLEGROUNDS Mobile India",
     desc: "loot weapons and supplies, and survive among 100 players",
     categoryName: ["adventure", "action", "simulation"],
@@ -34,7 +34,7 @@ export const products = [
       "https://res.cloudinary.com/dmlhtqirp/image/upload/v1686652620/BRUKart/bgmi-unban.png",
   },
   {
-    _id: 3,
+    _id: "3",
     title: "Crazy Taxi",
     desc: "drive crazy to the city and earn the respect in your city",
     categoryName: ["racing", "arcade-and-puzzle"],
@@ -48,7 +48,7 @@ export const products = [
       "https://res.cloudinary.com/dmlhtqirp/image/upload/v1686415138/BRUKart/crazy-taxi.jpg",
   },
   {
-    _id: 4,
+    _id: "4",
     title: "Resident Evil 4",
     desc: "xyz",
     categoryName: ["action", "adventure"],
@@ -62,7 +62,7 @@ export const products = [
       "https://res.cloudinary.com/dmlhtqirp/image/upload/v1686415138/BRUKart/resident-evil-4.jpg",
   },
   {
-    _id: 5,
+    _id: "5",
     title: "Shadow of the Tomb Raider",
     desc: "As Lara Croft races to save the world from a Maya apocalypse, she must become the Tomb Raider she is destined to be",
     categoryName: ["action", "adventure"],
@@ -76,7 +76,7 @@ export const products = [
       "https://res.cloudinary.com/dmlhtqirp/image/upload/v1686415138/BRUKart/shadow-of-the-tomb-raider.jpg",
   },
   {
-    _id: 6,
+    _id: "6",
     title: "Mini Militia - Doodle Army",
     desc: "It is a multiplayer game where you can battle with up to 6 players online or 12 players via LAN",
     categoryName: ["action"],
@@ -90,7 +90,7 @@ export const products = [
       "https://res.cloudinary.com/dmlhtqirp/image/upload/v1686415138/BRUKart/mini-militia.jpg",
   },
   {
-    _id: 7,
+    _id: "7",
     title: "Smash Karts",
     desc: "Drive your go-kart, pick up weapons, and blow up other karts to win! Keep playing to level up and unlock new characters and prizes",
     categoryName: ["action", "simulation"],
@@ -104,7 +104,7 @@ export const products = [
       "https://res.cloudinary.com/dmlhtqirp/image/upload/v1686415139/BRUKart/smash-kart.jpg",
   },
   {
-    _id: 8,
+    _id: "8",
     title: "Among Us",
     desc: "party game of teamwork and betrayal",
     categoryName: ["action", "adventure"],
@@ -118,7 +118,7 @@ export const products = [
       "https://res.cloudinary.com/dmlhtqirp/image/upload/v1686415172/BRUKart/among-us.jpg",
   },
   {
-    _id: 9,
+    _id: "9",
     title: "Asphalt 9: Legends",
     desc: "best arcade racing game",
     categoryName: ["racing", "adventure", "arcade"],
@@ -132,7 +132,7 @@ export const products = [
       "https://res.cloudinary.com/dmlhtqirp/image/upload/v1686415139/BRUKart/asphalt-9-legends.jpg",
   },
   {
-    _id: 10,
+    _id: "10",
     title: "Trial Xtreme 4",
     desc: "race with time constraints on challenging terrains",
     categoryName: ["racing", "adventure"],
@@ -146,7 +146,7 @@ export const products = [
       "https://res.cloudinary.com/dmlhtqirp/image/upload/v1686415139/BRUKart/trial-xtreme.jpg",
   },
   {
-    _id: 11,
+    _id: "11",
     title: "Balloon Blow",
     desc: "try to maintain balloon flow away from falling on horizon",
     categoryName: ["simulation", "arcade-and-puzzle"],
@@ -160,7 +160,7 @@ export const products = [
       "https://res.cloudinary.com/dmlhtqirp/image/upload/v1686415138/BRUKart/balloon-blow.jpg",
   },
   {
-    _id: 12,
+    _id: "12",
     title: "Ball Blast",
     desc: "crush as many balls as possible from your canon and race the leaderboard",
     categoryName: ["action", "arcade-and-puzzle"],
@@ -174,7 +174,7 @@ export const products = [
       "https://res.cloudinary.com/dmlhtqirp/image/upload/v1686415138/BRUKart/ball-blast.jpg",
   },
   {
-    _id: 13,
+    _id: "13",
     title: "Frontline Commando",
     desc: "survive amongst multiplayers with first-person-perspective",
     categoryName: ["action", "simulation", "adventure"],

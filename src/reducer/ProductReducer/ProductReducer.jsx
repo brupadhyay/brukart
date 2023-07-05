@@ -25,6 +25,12 @@ const ProductReducer = (state, action) => {
         cart: action.payload
       }
 
+    case "ADD_TO_WISHLIST":
+      return {
+        ...state,
+        wishlist: action.payload
+      }
+
     case "CHANGE_FILTERS":
       return {
         ...state,

@@ -12,8 +12,6 @@ const SingleProductPage = () => {
 
   const [product, setProduct] = useState();
 
-  console.log("id-", productId);
-
   useEffect(() => {
     (async () => {
       try {

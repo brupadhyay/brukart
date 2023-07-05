@@ -39,65 +39,62 @@ export const getWishlistItems = async ({ encodedToken }) =>
     },
   });
 
-export const postCartItem = async ({product, encodedToken}) => 
-  await axios.post("/api/user/cart",  
-  {
-    product
-  },
-  {
-    headers: {
-      authorization: encodedToken
+export const postCartItem = async ({ product, encodedToken }) =>
+  await axios.post(
+    "/api/user/cart",
+    {
+      product,
+    },
+    {
+      headers: {
+        authorization: encodedToken,
+      },
     }
-  }
-)
+  );
 
-export const postWishlistItem = async ({product, encodedToken}) => 
-  await axios.post("/api/user/wishlist",
-  {
-    product: product
-  },
-  {
-    headers: {
-      authorization: encodedToken
+export const postWishlistItem = async ({ product, encodedToken }) =>
+  await axios.post(
+    "/api/user/wishlist",
+    {
+      product,
+    },
+    {
+      headers: {
+        authorization: encodedToken,
+      },
     }
-  }  
-)
+  );
 
-export const deleteCartItem = async ({id, encodedToken}) => 
-  await axios.delete(`/api/user/cart/${id}`, {
+export const deleteCartItem = async ({ productId, encodedToken }) =>
+  await axios.delete(`/api/user/cart/${productId}`, {
     headers: {
-      authorization: encodedToken
-    }
-})
+      authorization: encodedToken,
+    },
+  });
 
-export const deleteWishlistItem = async ({_id, encodedToken}) => 
-  await axios.delete(`/api/user/wishlist/${_id}`, {
+export const deleteWishlistItem = async ({ productId, encodedToken }) =>
+  await axios.delete(`/api/user/wishlist/${productId}`, {
     headers: {
-      authorization: encodedToken
-    }
-})
+      authorization: encodedToken,
+    },
+  });
 
-export const cartItemQuantity = async ({_id, encodedToken, type}) => 
-  await axios.post(`/api/user/cart/${_id}`,
-  {
-    action: {type}
-  },
-  {
+export const cartItemQuantity = async ({ productId, encodedToken, type }) =>
+  await axios.post(
+    `/api/user/cart/${productId}`,
+    {
+      action: { type },
+    },
+    {
+      headers: {
+        authorization: encodedToken,
+      },
+    }
+  );
+
+export const clearCartItem = async ({ productId, encodedToken }) =>
+  await axios.delete(`api/user/cart/${productId}`, {
     headers: {
-      authorization: encodedToken
-    }
-})
-
-export const clearCart = async (cart, token) => {
-  try {
-    for(let item of cart) {
-      await axios.delete(`/api/user/cart/${item._id}`, {
-        headers: {
-          authorization: token
-        }
-      })
-    }
-  } catch (error) {
-    console.log('error in clear cart service', error.message)
-  }
-}
+      authorization: encodedToken,
+    },
+  });

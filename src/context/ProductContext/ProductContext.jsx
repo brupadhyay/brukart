@@ -8,6 +8,8 @@ const ProductContext = createContext();
 const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(ProductReducer, initialState);
 
+  const localStorageUser = JSON.parse(localStorage?.getItem("login"))
+
   const fetchProducts = async () => {
     try {
       const response = await fetch("/api/products");
@@ -25,6 +27,24 @@ const ProductProvider = ({ children }) => {
     }
   };
 
+  const getCartItemsHandler = () => {
+    try {
+      const cart = localStorageUser?.user.cart;
+      dispatch({ type: "ADD_TO_CART", payload: cart });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getWisthlistItemsHandler = () => {
+    try {
+      const wishlist = localStorageUser?.user.wishlist;
+      dispatch({ type: "ADD_TO_WISHLIST", payload: wishlist });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const applyFilters = (filterType, filterValue) => {
     dispatch({
       type: "CHANGE_FILTERS",
@@ -34,14 +54,15 @@ const ProductProvider = ({ children }) => {
 
   const clearFilters = () => {
     dispatch({
-      type: 'CLEAR_FILTERS',
-      payload: {}
-    })
-  }
-
+      type: "CLEAR_FILTERS",
+      payload: {},
+    });
+  };
 
   useEffect(() => {
     fetchProducts();
+    getCartItemsHandler();
+    getWisthlistItemsHandler();
   }, []);
 
   const filteredProducts = filteringUserChoice(state);
@@ -54,7 +75,7 @@ const ProductProvider = ({ children }) => {
         applyFilters,
         filteredProducts,
         fetchProducts,
-        clearFilters
+        clearFilters,
       }}
     >
       {children}
@@ -62,6 +83,6 @@ const ProductProvider = ({ children }) => {
   );
 };
 
-export const useProduct = () => useContext(ProductContext);
+const useProduct = () => useContext(ProductContext);
 
-export { ProductProvider, ProductContext };
+export { ProductProvider, ProductContext, useProduct };

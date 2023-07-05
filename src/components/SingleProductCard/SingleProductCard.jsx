@@ -1,22 +1,42 @@
-import { useState } from "react";
-import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
+import { useState, useSyncExternalStore } from "react";
+import { AiFillHeart, AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
+import { TbTruckDelivery } from "react-icons/tb";
 import { useNavigate } from "react-router";
 
 import { useAuth, useProduct } from "../../context";
 import styles from "../../screens/ProductListing/ProductListing.module.css";
-import { postCartItem } from "../../services/services";
+import {
+  deleteWishlistItem,
+  postCartItem,
+  postWishlistItem,
+} from "../../services/services";
 import { toastNotification } from "../../utils/toaster";
 
 const SingleProductCard = ({ game }) => {
   const [cartBtnDisabled, setCartBtnDisabled] = useState(false);
+  const [wishlistBtnDisabled, setWishlistBtnDisabled] = useState(false);
+
   const navigate = useNavigate();
 
   const { token } = useAuth();
-  const { dispatch } = useProduct();
+  const { state, dispatch } = useProduct();
+
+  const presentInCart = state.cart.find(
+    ({ _id: productId }) => productId === game._id
+  );
+
+  const presentInWishlist = state.wishlist.find(
+    ({ _id: productId }) => productId === game._id
+  );
 
   const cartHandler = async () => {
+    if (presentInCart) {
+      navigate("/cart");
+      return;
+    }
+
     setCartBtnDisabled(true);
     if (token) {
       toastNotification("SUCCESS", `${game.title} successfully added to cart`);
@@ -30,22 +50,79 @@ const SingleProductCard = ({ game }) => {
         status,
         data: { cart },
       } = await postCartItem({
-        product: { ...game, quantity: 1 },
+        product: { ...game, qty: 1 },
         encodedToken: token,
       });
 
-      if(status === 200 || status === 201){
+      if (status === 200 || status === 201) {
         setCartBtnDisabled(false);
         dispatch({
-            type: "ADD_TO_CART",
-            payload: cart
-        })
-      };
-
+          type: "ADD_TO_CART",
+          payload: cart,
+        });
+      }
     } catch (error) {
-        console.log(error.message);
+      console.log(error.message);
     } finally {
-        setCartBtnDisabled(false);
+      setCartBtnDisabled(false);
+    }
+  };
+
+  const wishlistHandler = async () => {
+    setWishlistBtnDisabled(true);
+    if (token) {
+      toastNotification("SUCCESS", `${game.title} added to wishlist`);
+    } else {
+      navigate("/login");
+      toastNotification("WARNING", "You're not logged-in");
+    }
+    try {
+      const {
+        status,
+        data: { wishlist },
+      } = await postWishlistItem({
+        product: { ...game, wished: true },
+        encodedToken: token,
+      });
+
+      if (status === 200 || status === 201) {
+        dispatch({ type: "ADD_TO_WISHLIST", payload: wishlist });
+      }
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      setWishlistBtnDisabled(false);
+    }
+  };
+
+  const removeItemFromWishlist = async (id) => {
+    setWishlistBtnDisabled(true);
+    if (token) {
+      toastNotification("INFO", `${game.title} removed from wishlist`);
+    } else {
+      toastNotification("WARNING", "You're not logged-in");
+    }
+    try {
+      const {
+        status,
+        data: { wishlist },
+      } = await deleteWishlistItem({
+        productId: game._id,
+        encodedToken: token,
+      });
+
+      console.log("wishlist -> ", wishlist);
+
+      if (status === 200 || status === 201) {
+        dispatch({
+          type: "ADD_TO_WISHLIST",
+          payload: wishlist,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setWishlistBtnDisabled(false);
     }
   };
 
@@ -82,16 +159,31 @@ const SingleProductCard = ({ game }) => {
         /-
       </p>
       <div className={styles.btnsWrapper}>
-        <button onClick={cartHandler} className={styles.buyButton}>
-          <FaShoppingCart />
-          Add to Cart
+        <button
+          onClick={cartHandler}
+          disabled={cartBtnDisabled}
+          className={`{ ${presentInCart && styles.gotocartBtn} ${
+            styles.buyButton
+          } }`}
+        >
+          {presentInCart ? (
+            <>
+              <TbTruckDelivery />
+              Go to Cart
+            </>
+          ) : (
+            <>
+              <FaShoppingCart />
+              Add to Cart
+            </>
+          )}
         </button>
-        <button className={`wishlist ${styles.buyButton}`}>
-          <AiOutlineHeart
-            style={{
-              color: "#FF3860",
-            }}
-          />
+        <button
+          className={`{ ${styles.wishlist} ${styles.buyButton} }`}
+          onClick={presentInWishlist ? removeItemFromWishlist : wishlistHandler}
+          disabled={wishlistBtnDisabled}
+        >
+          {presentInWishlist ? <AiFillHeart /> : <AiOutlineHeart />}
         </button>
       </div>
 

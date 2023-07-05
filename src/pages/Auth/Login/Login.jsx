@@ -27,7 +27,7 @@ const Login = () => {
     loginUser(userDetails.email, userDetails.password);
   };
 
-  const guesLoginHandler = (e) => {
+  const guestLoginHandler = (e) => {
     e.preventDefault();
     setUserDetails({
       email: dummyUser.email,
@@ -76,7 +76,7 @@ const Login = () => {
         </main>
         <footer className={styles.formButtons}>
           <button className={styles.guestButton}
-          onClick={guesLoginHandler}>guest login</button>
+          onClick={guestLoginHandler}>guest login</button>
           <button className={styles.loginButton} type="submit">
             login
           </button>

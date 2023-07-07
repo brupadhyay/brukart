@@ -88,6 +88,7 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1.5rem;
+    padding-left: 1rem;
 }
 
 .header span:first-child {
@@ -113,7 +114,7 @@
 }
 
 .buyButton {
-    background-color: var(--dark);
+    background-color: var(--primary);
     color: white;
     cursor: pointer;
     border: 0;
@@ -125,6 +126,11 @@
     justify-content: center;
     text-transform: uppercase;
     padding: var(--pd-xxs);
+    transition: background-color 0.3s ease-in;
+}
+
+.buyButton:hover {
+    background-color: #0390e2;
 }
 
 .vendor {
@@ -167,14 +173,12 @@
 }
 
 .gotocartBtn {
-    background-color: var(--green-2);
-    color: black;
-    font-weight: 600;
+    background-color: var(--success);
     transition: background-color 0.3s ease-in;
 }
 
 .gotocartBtn:hover {
-    background-color: var(--success);
+    background-color: var(--green-5);
 }
 
 .wishlist {
@@ -183,4 +187,51 @@
     border: 0;
     font-size: 1.8rem;
     padding-left: 0.5rem;
+}
+
+.wishlist:hover {
+    background-color: initial;
+}
+
+.toggleBtn {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 50px;
+    right: 30px;
+    border-radius: 50%;
+    border: 0;
+    z-index: 9999;
+    font-size: 2rem;
+    color: white;
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 900px) {
+    .productPage {
+        grid-template-columns: 1fr;
+    }
+
+    .productsContainer {
+        padding: 0 10%;
+    }
+
+    .header {
+        padding: 0 10%;
+    }
+
+    .header span:first-child {
+        font-size: var(--fs-sm-1);
+        font-weight: var(--fw-6);
+    }
+
+    .detailCaption {
+        color: var(--grey-5);
+        font-size: var(--fs-xxs-1);
+        margin: 0;
+    }
 }

@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { loginServices, signupServices } from "../../services/services";
-import { toastNotification } from "../../utils/toaster";
+import { toastNotification } from "../../utils/index";
 
 const AuthContext = createContext();
 

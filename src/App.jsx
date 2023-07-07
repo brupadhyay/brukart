@@ -3,6 +3,7 @@ import "./App.css";
 
 import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
+
 import { Footer, SingleProductPage } from "./components";
 import { PrivateRoutes } from "./constants/PrivateRoutes";
 import { Login, Signup } from "./pages";
@@ -23,7 +24,10 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <ToastContainer />
+      <ToastContainer style={{
+        fontSize: "1rem",
+        fontWeight: "500"
+      }}/>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/mockman" element={<MockAPI />} />

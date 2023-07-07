@@ -7,6 +7,25 @@
     margin: 1rem auto;
 }
 
+.asideInMobile {
+    display: none;
+}
+
+.asideOnToggle {
+    background-color: white;
+    position: fixed;
+    left: -30px;
+    top: 4rem;
+    bottom: 0;
+    display: initial;
+    width: 280px;
+    height: calc(100vh - 40px);
+    padding: var(--space-xs) var(--space-sm) var(--space-md);
+    transition: 0.1s ease-in-out all;
+    transform: translateX(10%);
+    z-index: 9999;
+}
+
 h1 {
     margin-top: var(--fs-sm-2);
 }
@@ -15,7 +34,6 @@ h1 {
     background-color: var(--red-2);
     border: 1px solid var(--red-3);
     box-shadow: var(--bs-xxs);
-    margin: auto;
     transition: 0.2s ease-in;
     font-size: var(--fs-xxs-1);
     cursor: pointer;
@@ -26,4 +44,20 @@ h1 {
 .clearFilter:hover {
     background-color: var(--danger);
     color: #fff;
+}
+
+.btnWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.closeBtn {
+    color: var(--red-6);
+    background-color: initial;
+    border: 0;
+    font-size: var(--fs-xs-1);
+    padding-top: 0.7rem;
 }

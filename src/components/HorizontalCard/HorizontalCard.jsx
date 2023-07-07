@@ -7,7 +7,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./HorizontalCard.module.css";
 import { cartItemQuantity, clearCartItem, deleteWishlistItem, postWishlistItem } from "../../services/services";
 import { useAuth, useProduct } from "../../context";
-import { toastNotification } from "../../utils/toaster";
+import { toastNotification } from "../../utils/index";
 
 const HorizontalCard = ({ game }) => {
 
@@ -45,6 +45,19 @@ const HorizontalCard = ({ game }) => {
   };
 
   const quantityHandler = async (type) => {
+
+    switch(type){
+      case "increment": toastNotification("INFO", `${game.title}'s quantity increased`);
+      break;
+
+      case "decrement": if(game.qty !== 1){
+        toastNotification("INFO", `${game.title}'s quantity decreased`);
+        break;
+      }
+
+      default: break;
+    }
+
     try {
       if (qty === 1 && type === "decrement") {
         removeItemFromCart(_id);
@@ -133,7 +146,7 @@ const HorizontalCard = ({ game }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [window.innerWidth]);
 
   return (
     <article className={styles.horizontalCard}>

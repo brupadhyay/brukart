@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router";
 import styles from "./Login.module.css";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../../context";
-import { toastNotification } from "../../../utils/toaster";
+import { toastNotification } from "../../../utils/index";
 
 const Login = () => {
   const navigate = useNavigate();

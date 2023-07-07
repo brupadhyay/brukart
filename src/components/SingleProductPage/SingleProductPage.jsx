@@ -16,7 +16,6 @@ const SingleProductPage = () => {
     (async () => {
       try {
         const productFromResponse = await getSingleProductHandler(productId);
-        console.log(productFromResponse);
         setProduct(productFromResponse);
       } catch (error) {
         console.log(error.message);

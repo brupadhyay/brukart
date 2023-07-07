@@ -1,15 +1,46 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { BiFilterAlt } from "react-icons/bi";
+
 import { Filters } from "../../components/Filters/Filters";
 import { useProduct } from "../../context/ProductContext/ProductContext";
 import styles from "./ProductListing.module.css";
 import { SingleProductCard } from "../../components/SingleProductCard/SingleProductCard";
+import { useEffect, useState } from "react";
 
 const ProductListing = () => {
   const { filteredProducts } = useProduct();
 
+  const [isMobile, setIsMobile] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 900);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [window.innerWidth]);
+
+  const toggleFilters = () => {
+    setShowFilters((prevShowFilters) => !prevShowFilters);
+  };
+
   return (
     <div className={styles.productPage}>
-      <Filters />
+      <Filters
+        isMobile={isMobile}
+        showFilters={showFilters}
+        toggleFilters={toggleFilters}
+      />
+
+      {isMobile && (
+        <button className={styles.toggleBtn} onClick={toggleFilters}>
+          <BiFilterAlt />
+        </button>
+      )}
 
       <div>
         <main className={styles.header}>

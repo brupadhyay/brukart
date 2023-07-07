@@ -50,7 +50,7 @@ const filteringUserChoice = (state) => {
     })
     : filteredData;
 
-  filteredData = searchValue
+  filteredData = searchValue.trim()
     ? filteredData.filter(({ title }) =>
         title.toLowerCase().includes(searchValue.toLowerCase())
       )

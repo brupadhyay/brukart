@@ -1,4 +1,4 @@
-import { useState, useSyncExternalStore } from "react";
+import { useState } from "react";
 import { AiFillHeart, AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
@@ -23,11 +23,11 @@ const SingleProductCard = ({ game }) => {
   const { token } = useAuth();
   const { state, dispatch } = useProduct();
 
-  const presentInCart = state.cart.find(
+  const presentInCart = state?.cart?.find(
     ({ _id: productId }) => productId === game._id
   );
 
-  const presentInWishlist = state.wishlist.find(
+  const presentInWishlist = state?.wishlist?.find(
     ({ _id: productId }) => productId === game._id
   );
 
@@ -39,7 +39,7 @@ const SingleProductCard = ({ game }) => {
 
     setCartBtnDisabled(true);
     if (token) {
-      toastNotification("SUCCESS", `${game.title} successfully added to cart`);
+      toastNotification("INFO", `${game.title} successfully added to cart`);
     } else {
       toastNotification("WARNING", "You're not logged-in");
       navigate("/login");
@@ -71,7 +71,7 @@ const SingleProductCard = ({ game }) => {
   const wishlistHandler = async () => {
     setWishlistBtnDisabled(true);
     if (token) {
-      toastNotification("SUCCESS", `${game.title} added to wishlist`);
+      toastNotification("INFO", `${game.title} added to wishlist`);
     } else {
       navigate("/login");
       toastNotification("WARNING", "You're not logged-in");
@@ -204,3 +204,4 @@ const SingleProductCard = ({ game }) => {
 };
 
 export { SingleProductCard };
+

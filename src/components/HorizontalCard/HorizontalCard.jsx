@@ -1,16 +1,22 @@
 import { useEffect, useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { BsFillBookmarkFill } from "react-icons/bs";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import styles from "./HorizontalCard.module.css";
-import { cartItemQuantity, clearCartItem, deleteWishlistItem, postWishlistItem } from "../../services/services";
+import {
+  cartItemQuantity,
+  clearCartItem,
+  deleteWishlistItem,
+  postCartItem,
+  postWishlistItem,
+} from "../../services/services";
 import { useAuth, useProduct } from "../../context";
 import { toastNotification } from "../../utils/index";
+import { TbTruckDelivery } from "react-icons/tb";
 
 const HorizontalCard = ({ game }) => {
-
   const [wishlistBtnDisabled, setWishlistBtnDisabled] = useState(false);
 
   const { _id, title, qty, price, discount, imageSrc } = game;
@@ -20,10 +26,52 @@ const HorizontalCard = ({ game }) => {
   const { token } = useAuth();
   const { state, dispatch } = useProduct();
   const [isMobile, setIsMobile] = useState(false);
+  const [cartBtnDisabled, setCartBtnDisabled] = useState(false);
 
   const presentInWishlist = state.wishlist.find(
     ({ _id: productId }) => productId === game._id
   );
+
+  const presentInCart = state.cart.find(
+    ({ _id: productId }) => productId === game._id
+  );
+
+  const cartHandler = async () => {
+    if (presentInCart) {
+      navigate("/cart");
+      return;
+    }
+
+    setCartBtnDisabled(true);
+    if (token) {
+      toastNotification("INFO", `${game.title} added to cart`);
+    } else {
+      toastNotification("WARNING", "You're not logged-in");
+      navigate("/login");
+    }
+
+    try {
+      const {
+        status,
+        data: { cart },
+      } = await postCartItem({
+        product: { ...game, qty: 1 },
+        encodedToken: token,
+      });
+
+      if (status === 200 || status === 201) {
+        setCartBtnDisabled(false);
+        dispatch({
+          type: "ADD_TO_CART",
+          payload: cart,
+        });
+      }
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      setCartBtnDisabled(false);
+    }
+  };
 
   const removeItemFromCart = async (productId) => {
     toastNotification("INFO", `${title} removed from cart`);
@@ -45,17 +93,19 @@ const HorizontalCard = ({ game }) => {
   };
 
   const quantityHandler = async (type) => {
-
-    switch(type){
-      case "increment": toastNotification("INFO", `${game.title}'s quantity increased`);
-      break;
-
-      case "decrement": if(game.qty !== 1){
-        toastNotification("INFO", `${game.title}'s quantity decreased`);
+    switch (type) {
+      case "increment":
+        toastNotification("INFO", `${game.title}'s quantity increased`);
         break;
-      }
 
-      default: break;
+      case "decrement":
+        if (game.qty !== 1) {
+          toastNotification("INFO", `${game.title}'s quantity decreased`);
+          break;
+        }
+
+      default:
+        break;
     }
 
     try {
@@ -82,7 +132,7 @@ const HorizontalCard = ({ game }) => {
   const wishlistHandler = async () => {
     setWishlistBtnDisabled(true);
     if (token) {
-      toastNotification("SUCCESS", `${game.title} added to wishlist`);
+      toastNotification("INFO", `${game.title} added to wishlist`);
     } else {
       navigate("/login");
       toastNotification("WARNING", "You're not logged-in");
@@ -121,7 +171,6 @@ const HorizontalCard = ({ game }) => {
         productId: game._id,
         encodedToken: token,
       });
-
 
       if (status === 200 || status === 201) {
         dispatch({
@@ -202,6 +251,25 @@ const HorizontalCard = ({ game }) => {
               </button>
             </div>
           )}
+          {pathname === "/wishlist" && (
+            <button
+              onClick={cartHandler}
+              disabled={cartBtnDisabled}
+              className={styles.wishlistAddToCart}
+            >
+              {presentInCart ? (
+                <>
+                  <TbTruckDelivery />
+                  Go to Cart
+                </>
+              ) : (
+                <>
+                  <FaShoppingCart />
+                  Add to Cart
+                </>
+              )}
+            </button>
+          )}
         </div>
         <div className={styles.buttonsWrapper}>
           <button
@@ -213,12 +281,16 @@ const HorizontalCard = ({ game }) => {
           >
             {presentInWishlist ? <AiFillHeart /> : <AiOutlineHeart />}
           </button>
-          <button
-            className={` ${isMobile ? styles.trashBtn : styles.removeFromCart}`}
-            onClick={() => removeItemFromCart(_id)}
-          >
-            {isMobile ? <FaTrashAlt /> : "Remove From Cart"}
-          </button>
+          {pathname === "/cart" && (
+            <button
+              className={` ${
+                isMobile ? styles.trashBtn : styles.removeFromCart
+              }`}
+              onClick={() => removeItemFromCart(_id)}
+            >
+              {isMobile ? <FaTrashAlt /> : "Remove From Cart"}
+            </button>
+          )}
         </div>
       </div>
     </article>

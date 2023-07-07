@@ -150,6 +150,13 @@
     line-height: 1.5rem;
 }
 
+.buyButton:nth-of-type(2){
+    color: var(--danger);
+    background-color: initial;
+    font-size: 2rem;
+}
+
+
 /*
   ***************** MEDIA QUERIES *****************
   */
@@ -157,6 +164,11 @@
     .badgeIconWidth {
         height: 50px;
         width: 40px;
+    }
+
+    .buyButton {
+        font-size: var(--fs-xs-1);
+        gap: 0.25rem;
     }
 }
 

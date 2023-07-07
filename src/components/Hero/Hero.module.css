@@ -32,20 +32,20 @@
     display: inline-block;
     padding: var(--space-xxs) var(--space-xs);
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 700;
     text-align: center;
     text-decoration: none;
-    background-color: #0390e2;
+    background-color: var(--primary);
     color: #FFFFFF;
     border: none;
-    border-radius: 0.375rem;
+    border-radius: var(--br-xs);
     transition: background-color 0.3s ease-in;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     cursor: pointer;
 }
   
 .shopnow:hover {
-    background-color: #5fb8ed;
+    background-color: #0390e2;
 }
   
 

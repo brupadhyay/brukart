@@ -12,6 +12,10 @@
 
 .link {
     text-decoration: none;
+    color: var(--primary);
+    font-weight: var(--fw-7);
+    font-size: 1.4rem;
+    padding: var(--space-xxs) var(--space-xs);
 }
 
 .categorySection {

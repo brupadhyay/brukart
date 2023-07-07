@@ -87,8 +87,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1.5rem;
-    padding-left: 1rem;
+    padding: 1rem;
 }
 
 .header span:first-child {
@@ -182,7 +181,7 @@
 }
 
 .wishlist {
-    color: var(--red-5);
+    color: var(--danger);
     background-color: initial;
     border: 0;
     font-size: 1.8rem;
@@ -217,11 +216,12 @@
     }
 
     .productsContainer {
-        padding: 0 10%;
+        padding: var(--space-xs);
     }
 
     .header {
-        padding: 0 10%;
+        padding: var(--space-xs);
+        margin: 0;
     }
 
     .header span:first-child {

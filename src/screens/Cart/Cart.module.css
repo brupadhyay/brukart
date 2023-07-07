@@ -1,5 +1,5 @@
 .mainBody {
-    padding: 0 10%;
+    padding: 1rem 10%;
 }
 
 .productsHeading {
@@ -76,6 +76,6 @@
 
 @media screen and (max-width: 680px) {
     .mainBody {
-        padding: 1.6rem 1.2rem;
+        padding: var(--space-xs);
     }
 }

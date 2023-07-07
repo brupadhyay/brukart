@@ -1,16 +1,134 @@
 import { useEffect, useState } from "react";
-import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart, AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { BsFillBookmarkFill, BsFillHeartFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 import { getSingleProductHandler } from "../../utils/misc/getSingleProductHandler";
 import styles from "./SingleProductPage.module.css";
+import { useAuth, useProduct } from "../../context";
+import { toastNotification } from "../../utils";
+import {
+  deleteWishlistItem,
+  postCartItem,
+  postWishlistItem,
+} from "../../services/services";
+import { TbTruckDelivery } from "react-icons/tb";
 
 const SingleProductPage = () => {
   const { productId } = useParams();
 
   const [product, setProduct] = useState();
+  const [cartBtnDisabled, setCartBtnDisabled] = useState(false);
+  const [wishlistBtnDisabled, setWishlistBtnDisabled] = useState(false);
+
+  const navigate = useNavigate();
+
+  const { state, dispatch } = useProduct();
+  const { token } = useAuth();
+
+  const presentInCart = state?.cart?.find(
+    ({ _id }) => _id.toString() === productId.toString()
+  );
+
+  const presentInWishlist = state?.wishlist?.find(
+    ({ _id }) => _id.toString() === productId.toString()
+  );
+
+  const cartHandler = async () => {
+    if (presentInCart) {
+      navigate("/cart");
+      return;
+    }
+
+    setCartBtnDisabled(true);
+    if (token) {
+      toastNotification("INFO", `${product.title} successfully added to cart`);
+    } else {
+      toastNotification("WARNING", "You're not logged-in");
+      navigate("/login");
+    }
+
+    try {
+      const {
+        status,
+        data: { cart },
+      } = await postCartItem({
+        product: { ...product, qty: 1 },
+        encodedToken: token,
+      });
+
+      if (status === 200 || status === 201) {
+        setCartBtnDisabled(false);
+        dispatch({
+          type: "ADD_TO_CART",
+          payload: cart,
+        });
+      }
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      setCartBtnDisabled(false);
+    }
+  };
+
+  const wishlistHandler = async () => {
+    setWishlistBtnDisabled(true);
+    if (token) {
+      toastNotification("INFO", `${product.title} added to wishlist`);
+    } else {
+      navigate("/login");
+      toastNotification("WARNING", "You're not logged-in");
+    }
+    try {
+      const {
+        status,
+        data: { wishlist },
+      } = await postWishlistItem({
+        product: { ...product, wished: true },
+        encodedToken: token,
+      });
+
+      if (status === 200 || status === 201) {
+        dispatch({ type: "ADD_TO_WISHLIST", payload: wishlist });
+      }
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      setWishlistBtnDisabled(false);
+    }
+  };
+
+  const removeItemFromWishlist = async (id) => {
+    setWishlistBtnDisabled(true);
+    if (token) {
+      toastNotification("INFO", `${product.title} removed from wishlist`);
+    } else {
+      toastNotification("WARNING", "You're not logged-in");
+    }
+    try {
+      const {
+        status,
+        data: { wishlist },
+      } = await deleteWishlistItem({
+        productId: product._id,
+        encodedToken: token,
+      });
+
+      console.log("wishlist -> ", wishlist);
+
+      if (status === 200 || status === 201) {
+        dispatch({
+          type: "ADD_TO_WISHLIST",
+          payload: wishlist,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setWishlistBtnDisabled(false);
+    }
+  };
 
   useEffect(() => {
     (async () => {
@@ -76,51 +194,25 @@ const SingleProductPage = () => {
             </div>
           </div>
           <div className={styles.btnsWrapper}>
-            <button
-              className={`button btn-solid-dark ${styles.buyButton}`}
-              onClick={() => {
-                // if (authState.token) {
-                //   setItemAdded(true);
-                //   return addToCartHandler(
-                //     product,
-                //     cartDispatch,
-                //     authState.token
-                //   );
-                // }
-                // toastNotification("WARNING", "You're not logged-in")
-                // navigate("/login")
-              }}
-            >
-              <FaShoppingCart />
-              Add to cart
+            <button className={`button btn-solid-dark ${styles.buyButton}`}
+            onClick={cartHandler}>
+              {presentInCart ? (
+                <>
+                  <TbTruckDelivery />
+                  Go to Cart
+                </>
+              ) : (
+                <>
+                  <FaShoppingCart />
+                  Add to Cart
+                </>
+              )}
             </button>
             <button
               className={styles.buyButton}
-              // onClick={() => {
-              //   if (authState.token) {
-              //     if (!isWishlisted) {
-              //       setIsWishlisted(true);
-              //       return addToWishlistHandler(
-              //         product,
-              //         wishlistDispatch,
-              //         authState.token
-              //       );
-              //     } else {
-              //       setIsWishlisted(false);
-              //       return removeFromWishlistHandler(
-              //         product,
-              //         wishlistDispatch,
-              //         authState.token
-              //       );
-              //     }
-              //   }
-              //   toast.warning("You're not logged in");
-              //   return authModalHandler("LOGIN");
-              // }}
+              onClick={presentInWishlist ? removeItemFromWishlist : wishlistHandler}
             >
-              <AiOutlineHeart style={{
-                color: "#FF3860"
-              }} />
+              {presentInWishlist ? <AiFillHeart /> : <AiOutlineHeart />}
             </button>
           </div>
         </div>

@@ -13,6 +13,7 @@ import MockAPI from "./screens/Mockman";
 import { Navbar } from "./screens/Navbar/Navbar";
 import { ProductListing } from "./screens/ProductListing/ProductListing";
 import { Profile } from "./screens/Profile/Profile";
+import { Wishlist } from "./screens/Wishlist/Wishlist";
 
 function App() {
   const location = useLocation();
@@ -24,10 +25,12 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <ToastContainer style={{
-        fontSize: "1rem",
-        fontWeight: "500"
-      }}/>
+      <ToastContainer
+        style={{
+          fontSize: "1rem",
+          fontWeight: "500",
+        }}
+      />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/mockman" element={<MockAPI />} />
@@ -35,7 +38,6 @@ function App() {
         <Route path="/product/:productId" element={<SingleProductPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        {/* <Route path="/wishlist" element={<Wishlist />} /> */}
         <Route
           path="/profile"
           element={
@@ -49,6 +51,14 @@ function App() {
           element={
             <PrivateRoutes>
               <Cart />
+            </PrivateRoutes>
+          }
+        />
+        <Route
+          path="/wishlist"
+          element={
+            <PrivateRoutes>
+              <Wishlist />
             </PrivateRoutes>
           }
         />

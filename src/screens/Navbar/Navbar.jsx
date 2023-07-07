@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FaShoppingCart, FaRegUserCircle } from "react-icons/fa";
 import { BsFillHeartFill, BsSearch } from "react-icons/bs";
 
@@ -8,11 +8,16 @@ import { useProduct } from "../../context/ProductContext/ProductContext";
 const Navbar = () => {
   const { applyFilters, state } = useProduct();
 
+  const navigate = useNavigate();
+
   const handleSearchProducts = (event) => {
     const name = event.target.name;
     const value = event.target.value;
 
-    applyFilters(name, value.trim());
+    if(value.trim()){
+      navigate("/products");
+    }
+    applyFilters(name, value);
   };
 
   const getNavStyle = ({ isActive }) => {
@@ -31,7 +36,7 @@ const Navbar = () => {
           alt="logo-brukart"
         />
         <span className={styles.nomenclature}>
-          BRU<span>KART</span>
+          BRU<span className={styles.product}>KART</span>
         </span>
       </NavLink>
 

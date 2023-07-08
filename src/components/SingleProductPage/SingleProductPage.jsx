@@ -57,9 +57,8 @@ const SingleProductPage = () => {
         product: { ...product, qty: 1 },
         encodedToken: token,
       });
-
+      setCartBtnDisabled(false);
       if (status === 200 || status === 201) {
-        setCartBtnDisabled(false);
         dispatch({
           type: "ADD_TO_CART",
           payload: cart,
@@ -88,7 +87,7 @@ const SingleProductPage = () => {
         product: { ...product, wished: true },
         encodedToken: token,
       });
-
+      setWishlistBtnDisabled(false);
       if (status === 200 || status === 201) {
         dispatch({ type: "ADD_TO_WISHLIST", payload: wishlist });
       }
@@ -194,8 +193,13 @@ const SingleProductPage = () => {
             </div>
           </div>
           <div className={styles.btnsWrapper}>
-            <button className={`button btn-solid-dark ${styles.buyButton}`}
-            onClick={cartHandler}>
+            <button
+              className={`${
+                cartBtnDisabled && styles.disabledBtn
+              } button btn-solid-dark ${styles.buyButton}`}
+              disabled={cartBtnDisabled}
+              onClick={cartHandler}
+            >
               {presentInCart ? (
                 <>
                   <TbTruckDelivery />
@@ -209,8 +213,13 @@ const SingleProductPage = () => {
               )}
             </button>
             <button
-              className={styles.buyButton}
-              onClick={presentInWishlist ? removeItemFromWishlist : wishlistHandler}
+              className={`${wishlistBtnDisabled && styles.disabledBtn} ${
+                styles.buyButton
+              }`}
+              disabled={wishlistBtnDisabled}
+              onClick={
+                presentInWishlist ? removeItemFromWishlist : wishlistHandler
+              }
             >
               {presentInWishlist ? <AiFillHeart /> : <AiOutlineHeart />}
             </button>

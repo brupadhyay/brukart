@@ -4,10 +4,6 @@
     margin-top: 2rem;
 }
 
-.herotext {
-    padding-top: var(--space-xs);
-}
-
 
 .herotext > h1 {
     text-transform: capitalize;

@@ -3,6 +3,7 @@ import { useAuth, useProduct } from "../../context";
 
 import styles from "./Cart.module.css";
 import { HorizontalCard } from "../../components";
+import { PriceDetails } from "../../components/PriceDetails/PriceDetails";
 
 const Cart = () => {
   const { state } = useProduct();
@@ -42,8 +43,7 @@ const Cart = () => {
 
         {state.cart.length !== 0 && (
             <aside className={styles.priceDetails}>
-              {/* <PriceDetails /> */}
-              <p>Price Details</p>
+              <PriceDetails />
             </aside>
           )}
       </div>

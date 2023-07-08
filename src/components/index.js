@@ -6,4 +6,8 @@ export { ProductCarousel } from "./ProductCarousel/ProductCarousel";
 export { ShopByCategory } from "./ShopByCategory/ShopByCategory";
 export { CategoryCard } from "./CategoryCard/CategoryCard";
 export { Footer } from "./Footer/Footer";
-export { HorizontalCard } from "./HorizontalCard/HorizontalCard"
+export { HorizontalCard } from "./HorizontalCard/HorizontalCard";
+export { UserProfile } from "./UserProfile/UserProfile";
+export { Address } from "./Address/Address";
+export { AddressCard } from "./AddressCard/AddressCard";
+export { AddressUpdateModal } from "./AddressUpdateModal/AddressUpdateModal"

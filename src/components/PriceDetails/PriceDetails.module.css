@@ -1,0 +1,82 @@
+.card {
+    background-color: var(--secondary-theme-background);
+    border-radius: var(--br-xl);
+    box-shadow: var(--bs-xs);
+    color: var(--primary-theme-color);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.placeOrderBtn {
+    border-radius: 0;
+    border-bottom-left-radius: var(--br-xl);
+    border-bottom-right-radius: var(--br-xl);
+    padding: var(--space-xs);
+    text-align: center;
+    text-transform: uppercase;
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+}
+
+.placeOrderBtn:hover {
+    background-color: #0390e2;;
+    transition: 0.25s ease-in-out all;
+}
+
+.cardTitleValue {
+    text-align: center;
+    font-size: var(--fs-xs-1);
+    font-weight: var(--fw-6);
+    padding: var(--pd-xs);
+}
+
+.priceDesc {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+}
+
+.priceDetail {
+    font-weight: var(--fw-7);
+    font-size: var(--fs-xs-1);
+}
+
+.totalCaption {
+    color: var(--grey-4);
+    font-size: var(--fs-xxxs-2);
+    font-weight: var(--fw-3);
+}
+
+.applyCouponsBtn {
+    cursor: pointer;
+    border: none;
+    background-color: initial;
+    box-shadow: none;
+    color: var(--success);
+    padding: var(--space-xxs) var(--space-xs);
+}
+
+
+.totalAmount {
+    align-items: center;
+    border-bottom: 1px solid var(--grey-1);
+    border-top: 1px solid var(--grey-1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--space-xxs) 0;
+    text-align: center;
+    width: 100%;
+}

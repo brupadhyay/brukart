@@ -156,6 +156,10 @@
     font-size: 2rem;
 }
 
+.disabledBtn {
+    cursor: not-allowed;
+}
+
 
 /*
   ***************** MEDIA QUERIES *****************

@@ -1,3 +1,5 @@
+import { v4 as uuid } from "uuid"
+
 const initialState = {
   products: [],
   cart: [],
@@ -9,6 +11,18 @@ const initialState = {
     sortBy: "",
     searchValue: "",
   },
+  addressList: [
+    {
+      id: uuid(),
+      name: "Lallan Yadav",
+      street: "404, Tehsil Office, Mirzapur, Gyanpur",
+      city: "Jaunpur",
+      state: "Uttar Pradesh",
+      country: "India",
+      pincode: "904089",
+      mobile: "1234123456"
+    },
+  ]
 };
 
 const ProductReducer = (state, action) => {
@@ -50,6 +64,30 @@ const ProductReducer = (state, action) => {
           sortBy: "",
           searchValue: "",
         }
+      };
+
+    case "ADD_ADDRESS":
+      console.log("add",action.payload)
+      
+      return {
+        ...state,
+        addressList: [...state.addressList, action.payload]
+      };
+
+    case "UPDATE_ADDRESS":
+      const addressId = action.payload.id;
+
+      const updatedAddressList = state.addressList.map(address => address.id === addressId ? {...action.payload} : address);
+
+      return {
+        ...state,
+        addressList: [...updatedAddressList]
+      }
+
+    case "DELETE_ADDRESS":
+      return {
+        ...state,
+        addressList: state.addressList.filter(({ id }) => id !== action.payload)
       };
 
     default:

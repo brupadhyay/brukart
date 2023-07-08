@@ -1,0 +1,93 @@
+.addressWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 0 var(--space-sm) var(--space-sm);
+    width: fit-content;
+}
+
+.addNewBtn {
+    margin: var(--space-sm) auto 0;
+}
+
+.addressCard {
+    background-color: white;
+    border-radius: var(--br-sm);
+    border: 1px solid var(--grey-1);
+    margin: var(--space-sm) 0 0;
+    padding: var(--space-sm);
+    transition: box-shadow 0.2s ease-in;
+}
+
+.addressCard:hover {
+    box-shadow: var(--bs-xs);
+}
+
+.btnWrapper {
+    display: flex;
+    gap: var(--space-xxs);
+    margin-top: var(--space-sm);
+}
+
+.update {
+    background-color: var(--warning);
+    color: var(--dark);
+}
+
+.remove {
+    background-color: var(--danger);
+    color: white;
+}
+
+.addNewBtn {
+    background-color: var(--primary);
+    color: white;
+}
+
+.addNewBtn, .remove, .update {
+    border: none;
+    cursor: pointer;
+    border-radius: var(--br-xs);
+    font-size: var(--fs-xxs-1);
+    padding: 0.4rem var(--space-sm);
+    transition: 0.25s ease-in-out;
+}
+
+.addNewBtn {
+    font-size: var(--fs-xs-1);
+    border: 2px solid var(--primary);
+    background-color: white;
+    color: var(--primary);
+    margin: 1.6rem auto 0;
+}
+
+.update:hover {
+    background-color: var(--yellow-5);
+}
+
+.remove:hover {
+    background-color: var(--red-6);
+}
+
+.addNewBtn:hover {
+    background-color: #0390e2;
+    color: white;
+}
+
+.formWrapper {
+    z-index: 20;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.emptyAddress {
+    color: var(--grey-5);
+    font-size: var(--fs-xs-1);
+    font-weight: var(--fw-5);
+    margin: var(--space-xxl) var(--space-md);
+    text-align: center;
+}

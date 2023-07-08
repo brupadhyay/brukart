@@ -139,8 +139,12 @@
 @media screen and (max-width: 400px) {
 
   .footerCenter > .footerLink,
-  .footerRight > .footerLink, .footerLeftSociallinks, .contribute, .icons {
+  .footerRight > .footerLink, .footerLeftSociallinks, .icons {
     font-size: 1rem;
+  }
+
+  .contribute {
+    font-size: var(--fs-xxs-2);
   }
 
 }

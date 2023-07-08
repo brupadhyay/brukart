@@ -14,6 +14,7 @@ import { ProductListing } from "./screens/ProductListing/ProductListing";
 import { Profile } from "./screens/Profile/Profile";
 import { Wishlist } from "./screens/Wishlist/Wishlist";
 import { Checkout } from "./screens/Checkout/Checkout";
+import { Error404 } from "./screens/Error404";
 
 function App() {
   const location = useLocation();
@@ -38,6 +39,7 @@ function App() {
         <Route path="/product/:productId" element={<SingleProductPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="*" element={<Error404 />} />
         <Route
           path="/profile"
           element={

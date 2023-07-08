@@ -3,6 +3,7 @@ import styles from "./Login.module.css";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../../context";
 import { toastNotification } from "../../../utils/index";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -15,6 +16,10 @@ const Login = () => {
     email: "",
     password: "",
   });
+
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => setIsPasswordVisible(prev => !prev);
 
   const dummyUser = {
     email: "lallanyadav@gmail.com",
@@ -31,25 +36,31 @@ const Login = () => {
     e.preventDefault();
     setUserDetails({
       email: dummyUser.email,
-      password: dummyUser.password
+      password: dummyUser.password,
     });
-  }
+  };
 
   useEffect(() => {
-    if(token) {
-      toastNotification("SUCCESS", 'Successfully Logged In!')
+    if (token) {
+      toastNotification("SUCCESS", "Successfully Logged In!");
       navigate(location?.state?.from.pathname || "/");
     }
   }, [token]);
 
   return (
-    <div className={styles.loginForm}>
-      <form className={styles.formContainer} onSubmit={submitHandler}>
-        <h1>Login</h1>
-        <main>
-          <div className={styles.inputEmail}>
-            <label htmlFor="email">Email</label>
+    <div className={styles.modalContainer}>
+      <form className={styles.modal} onSubmit={submitHandler}>
+        <header className={styles.header}>
+          <h1>Login</h1>
+        </header>
+
+        <main className={styles.modalbody}>
+          <div className={styles.addressInput}>
+            <label className={styles.label} htmlFor="email">
+              Email
+            </label>
             <input
+              className={styles.input}
               type="email"
               name="email"
               onChange={(e) =>
@@ -60,10 +71,13 @@ const Login = () => {
               required
             />
           </div>
-          <div className={styles.inputPassword}>
-            <label htmlFor="password">Password</label>
+          <div className={styles.addressInput}>
+            <label className={styles.label} htmlFor="password">
+              Password
+            </label>
             <input
-              type="password"
+              className={styles.input}
+              type={isPasswordVisible ? "text" : "password"}
               name="password"
               placeholder="*******"
               value={userDetails.password}
@@ -72,15 +86,28 @@ const Login = () => {
                 setUserDetails({ ...userDetails, password: e.target.value })
               }
             />
+            <button
+              className={styles.passwordToggler}
+              type="button"
+              onClick={togglePasswordVisibility}
+            >
+              {isPasswordVisible ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+            </button>
           </div>
         </main>
-        <footer className={styles.formButtons}>
-          <button className={styles.guestButton}
-          onClick={guestLoginHandler}>guest login</button>
-          <button className={styles.loginButton} type="submit">
+        <footer className={styles.footer}>
+          <button className={styles.dummyBtn} onClick={guestLoginHandler}>
+            Guest Login
+          </button>
+          <button className={styles.updateBtn} type="submit">
             login
           </button>
-          <button onClick={() => navigate("/signup")}>signup</button>
+          <button
+            className={`${styles.outline} ${styles.updateBtn}`}
+            onClick={() => navigate("/signup")}
+          >
+            signup
+          </button>
         </footer>
       </form>
     </div>

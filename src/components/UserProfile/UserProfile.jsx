@@ -2,7 +2,7 @@ import { useAuth } from "../../context";
 import styles from "./UserProfile.module.css";
 
 const UserProfile = () => {
-  const { user } = useAuth();
+  const { user, logoutUser } = useAuth();
 
   return (
     <section>
@@ -21,7 +21,7 @@ const UserProfile = () => {
             <td className={`email ${styles.tableData}`}>{user.email}</td>
           </tr>
           <tr className={styles.tableRow}>
-            <button className={styles.logout}>Logout</button>
+            <button onClick={() => logoutUser()} className={styles.logout}>Logout</button>
           </tr>
         </tbody>
       </table>

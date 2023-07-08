@@ -22,7 +22,8 @@ const initialState = {
       pincode: "904089",
       mobile: "1234123456"
     },
-  ]
+  ],
+  selectedAddress: {}
 };
 
 const ProductReducer = (state, action) => {
@@ -88,6 +89,12 @@ const ProductReducer = (state, action) => {
       return {
         ...state,
         addressList: state.addressList.filter(({ id }) => id !== action.payload)
+      };
+
+    case "ORDER_ADDRESS":
+      return {
+        ...state,
+        selectedAddress: action.payload
       };
 
     default:

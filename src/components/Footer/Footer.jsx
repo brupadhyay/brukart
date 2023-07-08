@@ -59,7 +59,7 @@ const Footer = () => {
           <Link to="/wishlist" className={styles.footerLink}>
             Wishlist
           </Link>
-          <Link to="/user" className={styles.footerLink}>
+          <Link to="/profile" className={styles.footerLink}>
             Settings
           </Link>
         </article>

@@ -1,0 +1,6 @@
+.heading {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-xs);
+    font-size: var(--fs-sm-2);
+}

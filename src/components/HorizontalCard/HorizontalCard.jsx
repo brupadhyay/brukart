@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { BsFillBookmarkFill } from "react-icons/bs";
+import { TbTruckDelivery } from "react-icons/tb";
 import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import styles from "./HorizontalCard.module.css";
 import {
   cartItemQuantity,
-  clearCartItem,
+  deleteCartItem,
   deleteWishlistItem,
   postCartItem,
   postWishlistItem,
 } from "../../services/services";
 import { useAuth, useProduct } from "../../context";
 import { toastNotification } from "../../utils/index";
-import { TbTruckDelivery } from "react-icons/tb";
 
 const HorizontalCard = ({ game }) => {
   const [wishlistBtnDisabled, setWishlistBtnDisabled] = useState(false);
@@ -73,13 +73,13 @@ const HorizontalCard = ({ game }) => {
     }
   };
 
-  const removeItemFromCart = async (productId) => {
+  const removeItemFromCart = async () => {
     toastNotification("INFO", `${title} removed from cart`);
     try {
       const {
         status,
         data: { cart },
-      } = await clearCartItem({ productId, encodedToken: token });
+      } = await deleteCartItem({ productId: _id, encodedToken: token });
 
       if (status === 200 || status === 201) {
         dispatch({
@@ -286,7 +286,7 @@ const HorizontalCard = ({ game }) => {
               className={` ${
                 isMobile ? styles.trashBtn : styles.removeFromCart
               }`}
-              onClick={() => removeItemFromCart(_id)}
+              onClick={removeItemFromCart}
             >
               {isMobile ? <FaTrashAlt /> : "Remove From Cart"}
             </button>

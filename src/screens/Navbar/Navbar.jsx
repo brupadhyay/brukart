@@ -59,9 +59,11 @@ const Navbar = () => {
         </NavLink>
         <NavLink className={getNavStyle} to="/cart">
           <FaShoppingCart />
+          <span className={styles.cartCount}>{state?.cart?.length > 0 && state?.cart?.length}</span>
         </NavLink>
         <NavLink className={getNavStyle} to="/wishlist">
           <BsFillHeartFill />
+          <span className={styles.cartCount}>{state?.wishlist?.length > 0 && state?.wishlist?.length}</span>
         </NavLink>
         <NavLink className={getNavStyle} to="/profile">
           <FaRegUserCircle />

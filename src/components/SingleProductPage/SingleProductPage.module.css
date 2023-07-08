@@ -85,6 +85,10 @@
     padding: var(--pd-xxs);
 }
 
+.gotocart {
+    background-color: var(--success);
+}
+
 .cardPrice {
     font-size: var(--fs-xs-2);
     margin: var(--space-sm) 0;

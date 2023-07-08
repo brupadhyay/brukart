@@ -59,6 +59,7 @@
     border: 1px solid var(--primary);
     padding: 0.4rem 0.8rem;
     border-radius: var(--br-xl);
+    font-weight: var(--fw-5);
 }
 
 .footer {
@@ -110,5 +111,13 @@
     .updateBtn, .dummyBtn {
         font-size: var(--fs-xxs-1);
         padding: 0.4rem 0.8rem;
+    }
+
+    .label {
+        font-size: var(--fs-xxs-2);
+    }
+
+    .input {
+        font-size: var(--fs-xxs-1);
     }
 }

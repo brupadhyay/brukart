@@ -7,19 +7,16 @@
     margin: 1rem auto;
 }
 
-.asideInMobile {
-    display: none;
-}
 
 .asideOnToggle {
+    display: initial;
     background-color: white;
     position: fixed;
     left: -30px;
-    top: 4rem;
+    top: 5rem;
     bottom: 0;
-    display: initial;
     width: 280px;
-    height: calc(100vh - 40px);
+    height: 100vh;
     padding: var(--space-xs) var(--space-sm) var(--space-md);
     transition: 0.1s ease-in-out all;
     transform: translateX(10%);
@@ -60,4 +57,27 @@ h1 {
     border: 0;
     font-size: var(--fs-xs-1);
     padding-top: 0.7rem;
+}
+
+@media screen and (max-width: 900px){
+
+    .asideBar {
+        display: none;
+    }
+
+    .asideOnToggle {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 720px){
+    .asideOnToggle {
+        top: 9.2rem;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .asideOnToggle {
+        top: 8rem;
+    }
 }

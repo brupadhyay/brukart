@@ -196,7 +196,7 @@ const SingleProductPage = () => {
             <button
               className={`${
                 cartBtnDisabled && styles.disabledBtn
-              } button btn-solid-dark ${styles.buyButton}`}
+              } ${presentInCart && styles.gotocart } button btn-solid-dark ${styles.buyButton}`}
               disabled={cartBtnDisabled}
               onClick={cartHandler}
             >

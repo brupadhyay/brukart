@@ -60,6 +60,7 @@
     font-size: 1.35rem;
     color: var(--primary-theme-color);
     text-decoration: none;
+    position: relative;
 }
 
 .navlinks.active {
@@ -75,6 +76,23 @@
 .product {
     color: var(--primary-theme-color);
     font-weight: var(--fw-7);
+}
+
+.cartCount {
+    position: absolute;
+    font-size: var(--fs-xxxs-2);
+    padding: 0 5px;
+    right: 8px;
+    top: 10px;
+    min-width: 14px;
+    border: 2px solid #fff;
+    font-weight: var(--fw-7);
+    background-color: var(--danger);
+    color: white;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: var(--br-full);
 }
 
 @media screen and (max-width: 1024px) {
@@ -94,10 +112,14 @@
     .nomenclature {
         padding-left: 0.6rem;
     }
+
+    .cartCount {
+        right: 0;
+        top: -2px;
+    }
 }
 
 @media screen and (max-width: 720px){
-
 
     .navbar {
         grid-template-columns: auto auto;
@@ -115,6 +137,10 @@
 
     .nomenclature {
         margin-left: -0.8rem;
+    }
+
+    .cartCount {
+        right: -5px;
     }
 }
 

@@ -6,14 +6,12 @@ import { PriceRangeFilter } from "../PriceRangeFilter/PriceRangeFilter";
 import { RatingFilter } from "../RatingFilter/RatingFilter";
 import { SortByFilter } from "../SortByFilter/SortByFilter";
 import styles from "./Filters.module.css";
-
 const Filters = ({ isMobile, showFilters, toggleFilters }) => {
   const { state, clearFilters } = useProduct();
 
   return (
     <aside
-      className={` ${showFilters && styles.asideOnToggle}
-      ${isMobile && styles.asideInMobile}  ${styles.asideBar}`}
+      className={` ${showFilters && styles.asideOnToggle} ${styles.asideBar}`}
     >
       <div className={styles.btnWrapper}>
         <button onClick={clearFilters} className={styles.clearFilter}>

@@ -1,9 +1,8 @@
-import { Route, Routes, useLocation } from "react-router";
-import "./App.css";
-
 import { useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router";
 import { ToastContainer } from "react-toastify";
 
+import "./App.css";
 import { Footer, SingleProductPage } from "./components";
 import { PrivateRoutes } from "./constants/PrivateRoutes";
 import { Login, Signup } from "./pages";
@@ -14,6 +13,7 @@ import { Navbar } from "./screens/Navbar/Navbar";
 import { ProductListing } from "./screens/ProductListing/ProductListing";
 import { Profile } from "./screens/Profile/Profile";
 import { Wishlist } from "./screens/Wishlist/Wishlist";
+import { Checkout } from "./screens/Checkout/Checkout";
 
 function App() {
   const location = useLocation();
@@ -59,6 +59,14 @@ function App() {
           element={
             <PrivateRoutes>
               <Wishlist />
+            </PrivateRoutes>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <PrivateRoutes>
+              <Checkout />
             </PrivateRoutes>
           }
         />

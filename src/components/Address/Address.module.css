@@ -1,3 +1,14 @@
+.checkoutWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background-color: var(--light);
+    border-radius: var(--br-md);
+    margin: var(--space-sm) auto;
+    padding: var(--space-xs) var(--space-md);
+    width: min(85%, 500px);
+}
+
 .addressWrapper {
     display: flex;
     flex-direction: column;
@@ -90,4 +101,44 @@
     font-weight: var(--fw-5);
     margin: var(--space-xxl) var(--space-md);
     text-align: center;
+}
+
+.selectedAddressCard {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xxs);
+    cursor: pointer;
+}
+
+.selectedAddressCard > input {
+    cursor: pointer;
+}
+
+.btnsWrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0.8rem;
+    margin-top: 1rem;
+}
+
+.addressHeading {
+    margin: 0.5rem auto;
+    color: var(--grey-5);
+    font-weight: var(--fw-5);
+    font-size: var(--fs-xs-1);
+}
+
+.disabledBtn {
+    background-color: var(--grey-4);
+    cursor: not-allowed;
+}
+
+.disabledBtn:hover {
+    background-color: var(--grey-4);
+}
+
+@media screen and (max-width: 550px){
+    .checkoutWrapper {
+        padding: var(--space-xs);
+    }
 }

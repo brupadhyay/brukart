@@ -59,7 +59,7 @@ const AddressUpdateModal = ({ setAddressModal, defaultAddress = "" }) => {
     <div className={styles.modalContainer}>
       <form className={styles.modal} onSubmit={addressUpdateHandler}>
         <header className={styles.header}>
-          <h1 className="">Address</h1>
+          <h1>Address</h1>
           <button
             className={styles.closeBtn}
             onClick={() => setAddressModal(false)}

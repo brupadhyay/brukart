@@ -1,31 +1,145 @@
-.loginForm {
-    padding: 2rem 10%;
+.modalContainer {
     margin: 2rem 0;
 }
 
-.formContainer {    
-    display: flex;
+.modal {
+    background-color: white;
+    border-radius: var(--br-sm);
+    box-shadow: var(--bs-md);
     flex-direction: column;
-    max-width: 24rem;
-    margin: auto;
+    max-width: min(85%, 500px);
+    margin: var(--space-sm) auto;
 }
 
-.inputEmail, .inputPassword {
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    background-color: var(--primary);
+    color: white;
+    padding: var(--pd-xs);
+    border-radius: var(--br-sm) var(--br-sm) 0 0;
+}
+
+.header > h1 {
+    margin: 0;
+}
+
+.closeBtn {
+    cursor: pointer;
+    background-color: initial;
+    border: 0;
+    color: white;
+    font-weight: var(--fw-7);
+    font-size: var(--fs-sm-1);
+    padding-top: 1rem;
+}
+
+.modalbody {
+    padding: var(--pd-sm);
+}
+
+.addressInput {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    padding-bottom: 0.8rem;
+    position: relative;
 }
 
-.formButtons {
-    padding: var(--pd-sm);
+.label {
+    font-weight: var(--fw-6);
+    color: var(--primary-theme-color);
+    font-size: var(--fs-xs-1);
+}
+
+.input {
+    font-size: var(--fs-xxs-2);
+    border: 1px solid var(--primary);
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--br-xl);
+    font-weight: var(--fw-5);
+}
+
+.passwordToggler {
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    position: absolute;
+    bottom: 14px;
+    right: 22px;
+    font-size: var(--fs-xs-1);
+}
+
+.footer {
     display: flex;
-    justify-content: flex-end;
+    gap: 0.25rem;
+    justify-content: space-between;
+    padding: var(--pd-xs);
 }
 
-.loginButton {
-    margin-right: var(--space-sm);
+.dummyBtn {
+    border: 0;
+    background-color: initial;
+    color: var(--primary);
+    font-size: var(--fs-xxs-2);
+    cursor: pointer;
+    padding: 0.4rem var(--space-xs);
+    border-radius: var(--br-xs);
 }
 
-.guestButton {
-    margin-right: auto;
+.dummyBtn:hover {
+    background-color: var(--light);
+}
+
+.updateBtn {
+    border: 0;
+    background-color: var(--primary);
+    color: white;
+    font-size: var(--fs-xxs-2);
+    cursor: pointer;
+    padding: 0.4rem var(--space-xs);
+    border-radius: var(--br-xs);
+    text-transform: capitalize;
+    transition: 0.25s ease-in-out;
+}
+
+.updateBtn:hover {
+    background-color: #0390e2;
+    color: white;
+}
+
+.outline {
+    border: 2px solid var(--primary);
+    background-color: white;
+    color: var(--primary);
+}
+
+.outline:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+@media screen and (max-width: 500px) {
+    .modalbody {
+        padding: var(--space-xs);
+    }
+
+    .footer {
+        padding: var(--space-xxs);
+    }
+
+    .label {
+        font-size: var(--fs-xxs-2);
+    }
+
+    .input {
+        font-size: var(--fs-xxs-1);
+    }
+
+    .updateBtn, .dummyBtn {
+        font-size: var(--fs-xxs-1);
+        padding: 0.4rem 0.8rem;
+    }
 }

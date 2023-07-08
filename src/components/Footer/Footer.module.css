@@ -71,7 +71,7 @@
   }
   
   .footerCopyright {
-    font-size: var(--fs-xxs-2);
+    font-size: 1rem;
     margin-top: var(--space-xl);
     text-align: center;
   }

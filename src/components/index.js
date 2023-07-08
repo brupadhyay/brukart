@@ -10,4 +10,5 @@ export { HorizontalCard } from "./HorizontalCard/HorizontalCard";
 export { UserProfile } from "./UserProfile/UserProfile";
 export { Address } from "./Address/Address";
 export { AddressCard } from "./AddressCard/AddressCard";
-export { AddressUpdateModal } from "./AddressUpdateModal/AddressUpdateModal"
+export { AddressUpdateModal } from "./AddressUpdateModal/AddressUpdateModal";
+export { OrderSummary } from "./OrderSummary/OrderSummary"

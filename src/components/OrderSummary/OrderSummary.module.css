@@ -1,0 +1,116 @@
+.body {
+    background-color: var(--light);
+    border-radius: var(--br-md);
+    margin: var(--space-sm) auto;
+    padding: var(--space-xs) var(--space-sm);
+    width: min(85%, 500px);
+}
+
+.productsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xxxs);
+    margin-top: var(--space-sm);
+}
+
+.productCard {
+    background-color: white;
+    border-radius: var(--br-xs);
+    border: 1px solid var(--grey-1);
+    padding: var(--space-xs);
+    transition: box-shadow 0.2s ease-in;
+}
+
+.productCard:hover {
+    box-shadow: var(--bs-xs);
+}
+
+.productTitle {
+    font-size: var(--fs-xs-2);
+    line-height: 1.8rem;
+    font-weight: var(--fw-5);
+}
+
+.priceQtyWrapper {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-top: var(--space-xxs);
+}
+
+.priceQty {
+    font-size: var(--fs-xxs-2);
+}
+
+.table {
+    width: 100%;
+}
+
+.tableData {
+    font-size: var(--fs-xs-1);
+    font-weight: var(--fw-5);
+}
+
+.discountNote {
+    color: var(--success);
+    margin-top: var(--space-xs);
+    font-size: var(--fs-xxs-2);
+    display: flex;
+    justify-content: center;
+}
+
+.addressCard h2,
+.addressCard p {
+    font-size: var(--fs-xxs-2);
+    font-weight: var(--fw-4);
+}
+
+.addressCard h2 {
+    font-weight: var(--fw-6);
+}
+
+.sectionHeading {
+    font-size: var(--fs-xs-1);
+    font-weight: var(--fw-5);
+}
+
+.btnsWrapper {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--space-sm);
+}
+
+.orderSummary {
+    text-align: center;
+    color: var(--grey-5);
+    font-weight: var(--fw-5);
+    font-size: var(--fs-xs-1);
+}
+
+.addressCard div {
+    padding-top: 0.8rem;
+}
+
+@media screen and (max-width: 768px){
+    .body {
+        padding: var(--space-xs);
+    }
+
+    .productTitle {
+        font-size: var(--fs-xs-1);
+    }
+
+    .priceQty, .addressCard h2, .addressCard p {
+        font-size: 1rem;
+    }
+
+    .tableData {
+        font-size: var(--fs-xxs-2);
+    }
+
+    .sectionHeading {
+        font-size: var(--fs-xxs-2);
+    }
+}
+

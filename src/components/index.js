@@ -11,4 +11,5 @@ export { UserProfile } from "./UserProfile/UserProfile";
 export { Address } from "./Address/Address";
 export { AddressCard } from "./AddressCard/AddressCard";
 export { AddressUpdateModal } from "./AddressUpdateModal/AddressUpdateModal";
-export { OrderSummary } from "./OrderSummary/OrderSummary"
+export { OrderSummary } from "./OrderSummary/OrderSummary";
+export { Order } from "./Order/Order"; 

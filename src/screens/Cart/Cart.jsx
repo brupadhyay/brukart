@@ -25,6 +25,7 @@ const Cart = () => {
                 src="https://res.cloudinary.com/dmlhtqirp/image/upload/v1688729257/BRUKart/empty_cart.gif"
                 loading="lazy"
                 alt="empty-cart"
+                width="40%"
               />
               <p className={styles.emptyCartMsg}>
                 Your Cart is Empty! <br /> Make something that will

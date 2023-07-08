@@ -1,0 +1,19 @@
+.orderWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 0 var(--space-sm) var(--space-sm);
+    width: fit-content;
+}
+
+.emptyOrder {
+    color: var(--grey-5);
+    font-size: var(--fs-xs-1);
+    font-weight: var(--fw-5);
+    margin: var(--space-xxl) var(--space-md) var(--space-xs);
+    text-align: center;
+}
+
+.addNewBtn {
+    margin: var(--space-sm) auto 0;
+}

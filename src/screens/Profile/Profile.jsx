@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { scrollToTop } from "../../utils/ScrollToTop/scrollToTop";
 import styles from "./Profile.module.css";
-import { Address, UserProfile } from "../../components";
+import { Address, Order, UserProfile } from "../../components";
 
 const Profile = () => {
   const [currTab, setCurrTab] = useState("profile");
@@ -31,6 +31,14 @@ const Profile = () => {
         >
           My Address
         </button>
+        <button
+          className={`${styles.navBtn} ${
+            currTab === "orders" && styles.activeNavBtn
+          }`}
+          onClick={() => tabChangeHandler("orders")}
+        >
+          My Orders
+        </button>
       </nav>
 
       {(() => {
@@ -39,6 +47,8 @@ const Profile = () => {
             return <UserProfile />;
           case "address":
             return <Address />;
+          case "orders":
+            return <Order />;
         }
       })()}
     </section>

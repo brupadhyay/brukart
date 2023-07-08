@@ -19,7 +19,7 @@ const Error404 = () => {
         <p className={styles.emptyCartMsg}>
           Something went wrong! <br /> Looks like you're lost
         </p>
-        <Link to="/products" className="button btn-solid-primary">
+        <Link to="/" className="button btn-solid-primary">
           Explore More
         </Link>
       </div>

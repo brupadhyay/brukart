@@ -26,6 +26,7 @@ const Wishlist = () => {
                 src="https://res.cloudinary.com/dmlhtqirp/image/upload/v1688729256/BRUKart/empty_wishlist.gif"
                 loading="lazy"
                 alt="empty-cart"
+                width="40%"
               />
               <p className={styles.emptyCartMsg}>
                 Your Wishlist is Empty! <br /> Make something that will make us

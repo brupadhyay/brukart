@@ -3,6 +3,7 @@ import { AddressCard, AddressUpdateModal } from "../../components";
 import { useProduct } from "../../context";
 import styles from "./Address.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toastNotification } from "../../utils";
 
 const Address = ({ setSteps, checkout }) => {
   const { state, dispatch } = useProduct();
@@ -22,6 +23,7 @@ const Address = ({ setSteps, checkout }) => {
       type: "DELETE_ADDRESS",
       payload: id,
     });
+    toastNotification("SUCCESS", "Address removed Successfully!")
   };
 
   useEffect(() => {

@@ -92,9 +92,8 @@ export const cartItemQuantity = async ({ productId, encodedToken, type }) =>
     }
   );
 
-export const clearCartItem = async ({ productId, encodedToken }) =>
-  await axios.delete(`api/user/cart/${productId}`, {
-    headers: {
-      authorization: encodedToken,
-    },
+export const clearCartService = (token) => {
+  return axios.delete("/api/user/cart/all", {
+    headers: { authorization: token },
   });
+};

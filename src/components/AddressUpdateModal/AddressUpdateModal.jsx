@@ -4,6 +4,7 @@ import { v4 as uuid } from "uuid";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import styles from "./AddressUpdateModal.module.css";
 import { useProduct } from "../../context";
+import { toastNotification } from "../../utils";
 
 const dummyAddress = {
   id: uuid(), 
@@ -40,11 +41,13 @@ const AddressUpdateModal = ({ setAddressModal, defaultAddress = "" }) => {
             type: "UPDATE_ADDRESS",
             payload: address
         });
+        toastNotification("SUCCESS", "Address updated Successfully!")
     } else {
         dispatch({
             type: 'ADD_ADDRESS',
             payload: address
         });
+        toastNotification("SUCCESS", "Address added Successfully!")
     }
     setAddressModal(false);
   }
@@ -79,6 +82,7 @@ const AddressUpdateModal = ({ setAddressModal, defaultAddress = "" }) => {
                 onChange={(event) =>
                   setAddress({ ...address, name: event.target.value })
                 }
+                required
               />
             </div>
 
@@ -92,6 +96,7 @@ const AddressUpdateModal = ({ setAddressModal, defaultAddress = "" }) => {
                 onChange={(event) =>
                   setAddress({ ...address, street: event.target.value })
                 }
+                required
               />
             </div>
 
@@ -105,6 +110,7 @@ const AddressUpdateModal = ({ setAddressModal, defaultAddress = "" }) => {
                 onChange={(event) =>
                   setAddress({ ...address, city: event.target.value })
                 }
+                required
               />
             </div>
 
@@ -118,6 +124,7 @@ const AddressUpdateModal = ({ setAddressModal, defaultAddress = "" }) => {
                 onChange={(event) =>
                   setAddress({ ...address, state: event.target.value })
                 }
+                required
               />
             </div>
 
@@ -131,6 +138,7 @@ const AddressUpdateModal = ({ setAddressModal, defaultAddress = "" }) => {
                 onChange={(event) =>
                   setAddress({ ...address, country: event.target.value })
                 }
+                required
               />
             </div>
 
@@ -144,6 +152,7 @@ const AddressUpdateModal = ({ setAddressModal, defaultAddress = "" }) => {
                 onChange={(event) =>
                   setAddress({ ...address, pincode: event.target.value })
                 }
+                required
               />
             </div>
 
@@ -157,6 +166,7 @@ const AddressUpdateModal = ({ setAddressModal, defaultAddress = "" }) => {
                 onChange={(event) =>
                   setAddress({ ...address, mobile: event.target.value })
                 }
+                required
               />
             </div>
           </div>

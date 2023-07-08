@@ -1,0 +1,150 @@
+.card {
+    border-radius: var(--br-xs);
+    border: 1px solid var(--grey-1);
+    margin: var(--space-sm) auto 0;
+    width: min(90%, 600px);
+    transition: box-shadow 0.2s ease-in;
+}
+
+.card:hover {
+    box-shadow: var(--bs-xs);
+}
+
+.detailsWrapper {
+    font-size: var(--fs-xs-2);
+    padding: var(--space-sm);
+}
+
+.orderConfirmText {
+    color: var(--success);
+    font-size: var(--fs-sm-2);
+    font-weight: var(--fw-6);
+    text-transform: uppercase;
+}
+
+.date {
+    color: var(--grey-4);
+    font-size: var(--fs-xs-1);
+    font-weight: var(--fw-5);
+    text-transform: uppercase;
+}
+
+.addressWrapper {
+    margin: var(--space-xs) 0 0;
+    font-size: var(--fs-xxs-2);
+    border-top: 2px solid var(--grey-4);
+    padding-top: 0.8rem;
+}
+
+.subheading {
+    font-weight: var(--fw-6);
+    font-size: var(--fs-xs-1);
+}
+
+.priceColumn {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.25rem;
+}
+
+.horizontalCard {
+    border-top: 1px solid var(--grey-1);
+    display: flex;
+    gap: var(--space-xxs);
+    position: relative;
+    width: 100%;
+}
+
+
+.myItemImage {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.imageWrapper {
+    border-right: 1px solid var(--grey-1);
+    width: 70px;
+}
+
+.cardBody {
+    color: var(--dark);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.linkToProduct {
+    text-decoration: none;
+}
+
+.cardTitle {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    font-size: var(--fs-xs-1);
+    text-decoration: none;
+    color: var(--primary-theme-color);
+    min-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cardTitle:hover {
+    text-decoration: underline;
+}
+
+.newPrice {
+    color: var(--danger);
+    font-size: var(--fs-xs-1);
+}
+
+.priceQtyWrapper {
+    align-items: center;
+    display: flex;
+    font-size: var(--fs-xxs-2);
+    font-weight: var(--fw-5);
+    justify-content: space-between;
+    width: 100%;
+    padding-right: var(--space-xs);
+}
+
+/*
+  ***************** MEDIA QUERIES *****************
+  */
+@media screen and (max-width: 680px) {
+    .cardBody {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .orderConfirmText {
+        font-size: var(--fs-xs-2);
+    }
+
+    .date, .subheading {
+        font-size: var(--fs-xxs-2);
+    }
+
+    .addressWrapper, .priceQtyWrapper, .newPrice {
+        font-size: var(--fs-xxs-1);
+    }
+
+    .cardTitle {
+        font-size: var(--fs-xxs-2);
+        line-height: 1.4rem;
+    }
+
+    .card {
+        margin: 1rem auto;
+    }
+
+    .detailsWrapper {
+        padding: var(--space-xxs);
+    }
+}

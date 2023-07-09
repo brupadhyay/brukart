@@ -126,10 +126,6 @@
         height: auto;
     }
 
-    .navlinks {
-        padding: 0.8rem 0.4rem;
-    }
-
     .searchContainer {
         grid-row: 2;
         grid-column: 1/span 2;
@@ -142,11 +138,19 @@
     .cartCount {
         right: -5px;
     }
+
+    .navlinks:first-child {
+        padding-left: 0;
+    }
+    
+    .navlinks:last-child {
+        padding-right: 0;
+    }
 }
 
 @media screen and (max-width: 400px) {
     .mainLink {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .navlinks {

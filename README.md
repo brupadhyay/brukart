@@ -110,12 +110,13 @@
 
 ## **⚙️ Built With**
 
-- React
-- React Router
-- React Context API
+- ReactJS
+- React Router v6
+- React Context API + useReducer
 - [Razorpay](https://razorpay.com/) Payment Integration
 - [Mockbee](https://mockbee.netlify.app/) - for mock backend
-- CSS
+- CSS Modules
+- [React Icons](https://react-icons.github.io/react-icons/)
 
 <br />
 
@@ -177,7 +178,6 @@ If you have an idea to improve this, please fork the repository and submit a pul
 ## **🙏 Acknowledgements**
 
 Thank you to everyone who helped review BRUKart.
-
 
 <table>
   <tr>

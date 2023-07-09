@@ -230,3 +230,9 @@
         font-size: var(--fs-xs-1);
     }
 }
+
+@media screen and (max-width: 400px) {
+    .buyButton {
+        font-size: 0.8rem;
+    }
+}

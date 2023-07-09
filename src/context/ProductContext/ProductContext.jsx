@@ -85,4 +85,5 @@ const ProductProvider = ({ children }) => {
 
 const useProduct = () => useContext(ProductContext);
 
-export { ProductProvider, ProductContext, useProduct };
+export { ProductContext, ProductProvider, useProduct };
+

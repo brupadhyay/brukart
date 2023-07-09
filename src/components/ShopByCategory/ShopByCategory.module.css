@@ -30,6 +30,12 @@
     padding: 1.6rem;
 }
 
+@media screen and (max-width: 950px){
+    .categorySection {
+        margin-right: -1.2rem;
+    }
+}
+
 @media screen and (max-width: 500px){
     .categoryCarousel > h5 {
         font-size: var(--fs-xxs-2);
@@ -38,4 +44,5 @@
     .link {
         font-size: var(--fs-xxs-1);
     }
+    
 }

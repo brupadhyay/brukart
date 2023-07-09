@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { useAuth, useProduct } from "../../context";
 
-import styles from "../Cart/Cart.module.css";
 import { HorizontalCard } from "../../components";
+import { useAuth, useProduct } from "../../context";
+import styles from "../Cart/Cart.module.css";
 
 const Wishlist = () => {
   const { state } = useProduct();
@@ -48,3 +48,4 @@ const Wishlist = () => {
 };
 
 export { Wishlist };
+

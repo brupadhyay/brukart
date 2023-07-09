@@ -1,9 +1,10 @@
-import { useLocation, useNavigate } from "react-router";
-import styles from "./Login.module.css";
 import { useEffect, useState } from "react";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { useLocation, useNavigate } from "react-router";
+
 import { useAuth } from "../../../context";
 import { toastNotification } from "../../../utils/index";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import styles from "./Login.module.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -115,3 +116,4 @@ const Login = () => {
 };
 
 export { Login };
+

@@ -1,10 +1,11 @@
+import { useEffect, useState } from "react";
 import { BiFilterAlt } from "react-icons/bi";
 
 import { Filters } from "../../components/Filters/Filters";
+import { SingleProductCard } from "../../components/SingleProductCard/SingleProductCard";
 import { useProduct } from "../../context/ProductContext/ProductContext";
 import styles from "./ProductListing.module.css";
-import { SingleProductCard } from "../../components/SingleProductCard/SingleProductCard";
-import { useEffect, useState } from "react";
+
 
 const ProductListing = () => {
   const { filteredProducts } = useProduct();
@@ -68,3 +69,4 @@ const ProductListing = () => {
 };
 
 export { ProductListing };
+

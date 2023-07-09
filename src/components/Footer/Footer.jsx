@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <section className={styles.footerContent}>
         <article className={styles.footerLeft}>
-          <a href="/" className={styles.contribute}>
+          <a href="https://github.com/brupadhyay/brukart" target="_blank" className={styles.contribute}>
             Contribute to BRUKart
           </a>
           <div className={styles.footerLeftSociallinks}>

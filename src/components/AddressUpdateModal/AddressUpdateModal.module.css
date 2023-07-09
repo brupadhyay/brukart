@@ -4,14 +4,14 @@
     top: 50%;
     left: 50%;    
     transform: translate(-50%, -50%);
+    max-width: 460px;
 }
 
 .modal {
     background-color: white;
     border-radius: var(--br-sm);
     box-shadow: var(--bs-md);
-    flex-direction: column;
-    max-width: 460px;
+    flex-direction: column;    
 }
 
 .header {
@@ -100,8 +100,17 @@
 }
 
 @media screen and (max-width: 500px) {
+
+    .modalContainer {
+        width: 85%;
+    }
+
     .modalbody {
-        padding: var(--space-xs);
+        padding: var(--space-xs) var(--space-xs) 0;
+    }
+
+    .header {
+        padding: 0.8rem var(--space-xs);
     }
 
     .footer {

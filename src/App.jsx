@@ -6,15 +6,16 @@ import "./App.css";
 import { Footer, SingleProductPage } from "./components";
 import { PrivateRoutes } from "./constants/PrivateRoutes";
 import { Login, Signup } from "./pages";
-import { Cart } from "./screens/Cart/Cart";
-import { Landing } from "./screens/Landing";
-import MockAPI from "./screens/Mockman";
-import { Navbar } from "./screens/Navbar/Navbar";
-import { ProductListing } from "./screens/ProductListing/ProductListing";
-import { Profile } from "./screens/Profile/Profile";
-import { Wishlist } from "./screens/Wishlist/Wishlist";
-import { Checkout } from "./screens/Checkout/Checkout";
-import { Error404 } from "./screens/Error404";
+import {
+  Cart,
+  Checkout,
+  Error404,
+  Landing,
+  Navbar,
+  ProductListing,
+  Profile,
+  Wishlist
+} from "./screens";
 
 function App() {
   const location = useLocation();
@@ -34,7 +35,6 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/mockman" element={<MockAPI />} />
         <Route path="/products" element={<ProductListing />} />
         <Route path="/product/:productId" element={<SingleProductPage />} />
         <Route path="/login" element={<Login />} />

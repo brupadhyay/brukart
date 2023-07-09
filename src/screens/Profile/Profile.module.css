@@ -1,6 +1,5 @@
 .nav {
     align-items: center;
-    border-bottom: 1px solid var(--grey-1);
     display: flex;
     justify-content: center;
     margin-bottom: var(--space-sm);
@@ -11,33 +10,31 @@
 .navBtn {
     background-color: white;
     border: none;
-    border-bottom: 2px solid white;
-    border-left: 1px solid var(--grey-1);
     cursor: pointer;
     font-size: var(--fs-sm-1);
     padding: var(--space-xs) var(--space-lg);
     text-transform: uppercase;
-    transition: box-shadow, border 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
 }
 
-.navBtn:last-child {
-    border-right: 1px solid var(--grey-1);
-}
 
 .navBtn:hover {
     border-bottom-color: var(--dark);
-    box-shadow: var(--bs-xs);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;;
 }
 
 .activeNavBtn {
-    border-bottom-color: var(--primary);
+    border-bottom: 2px solid var(--primary);
     color: var(--primary);
 }
 
 /*
-  ***************** MEDIA QUERIES *****************
-  */
-@media screen and (max-width: 640px) {
+***************** MEDIA QUERIES *****************
+*/
+
+
+
+@media screen and (max-width: 768px) {
     .navBtn {
         font-size: var(--fs-xs-1);
         padding: var(--space-xxs) var(--space-xs);

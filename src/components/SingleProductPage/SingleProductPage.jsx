@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import { AiFillHeart, AiFillStar, AiOutlineHeart } from "react-icons/ai";
-import { BsFillBookmarkFill, BsFillHeartFill } from "react-icons/bs";
+import { BsFillBookmarkFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router";
 
-import { getSingleProductHandler } from "../../utils/misc/getSingleProductHandler";
-import styles from "./SingleProductPage.module.css";
+import { TbTruckDelivery } from "react-icons/tb";
 import { useAuth, useProduct } from "../../context";
-import { toastNotification } from "../../utils";
 import {
   deleteWishlistItem,
   postCartItem,
   postWishlistItem,
 } from "../../services/services";
-import { TbTruckDelivery } from "react-icons/tb";
+import { toastNotification } from "../../utils";
+import { getSingleProductHandler } from "../../utils/misc/getSingleProductHandler";
+import styles from "./SingleProductPage.module.css";
 
 const SingleProductPage = () => {
   const { productId } = useParams();
@@ -231,3 +231,4 @@ const SingleProductPage = () => {
 };
 
 export { SingleProductPage };
+

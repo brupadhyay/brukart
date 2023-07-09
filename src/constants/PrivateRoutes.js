@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import { Navigate, useLocation } from "react-router-dom";
+
 import { useAuth } from "../context";
 import { toastNotification } from "../utils";
-import { useEffect } from "react";
 
 const PrivateRoutes = ({ children }) => {
   const { token } = useAuth();
@@ -21,3 +22,4 @@ const PrivateRoutes = ({ children }) => {
 };
 
 export { PrivateRoutes };
+

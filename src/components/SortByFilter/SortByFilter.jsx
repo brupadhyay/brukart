@@ -1,5 +1,5 @@
-import styles from "./SortByFilter.module.css";
 import { useProduct } from "../../context/ProductContext/ProductContext";
+import styles from "./SortByFilter.module.css";
 
 const SortByFilter = () => {
   const sortby = ["low to high", "high to low"];

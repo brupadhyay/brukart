@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import styles from "./Cart/Cart.module.css";
 
 const Error404 = () => {
@@ -28,3 +29,4 @@ const Error404 = () => {
 };
 
 export { Error404 };
+

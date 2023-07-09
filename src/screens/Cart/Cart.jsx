@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import { useAuth, useProduct } from "../../context";
 
-import styles from "./Cart.module.css";
 import { HorizontalCard } from "../../components";
 import { PriceDetails } from "../../components/PriceDetails/PriceDetails";
-import { useEffect } from "react";
+import { useAuth, useProduct } from "../../context";
+import styles from "./Cart.module.css";
 
 const Cart = () => {
   const { state } = useProduct();
@@ -54,3 +53,4 @@ const Cart = () => {
 };
 
 export { Cart };
+

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import styles from "./Checkout.module.css"
 import { Address, OrderSummary } from "../../components";
+import styles from "./Checkout.module.css";
 
 const Checkout = () => {
   const [steps, setSteps] = useState(1);

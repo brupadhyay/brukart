@@ -1,10 +1,10 @@
-import { useNavigate } from "react-router";
 import { useState } from "react";
-import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { useNavigate } from "react-router";
 
-import styles from "./Signup.module.css";
 import { useAuth } from "../../../context/index";
 import { toastNotification } from "../../../utils";
+import styles from "./Signup.module.css";
 
 const Signup = () => {
   const navigate = useNavigate();

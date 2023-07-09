@@ -47,3 +47,4 @@ const ShopByCategory = () => {
 };
 
 export { ShopByCategory };
+

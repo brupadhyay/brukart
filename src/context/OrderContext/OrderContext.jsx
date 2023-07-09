@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
+
 import { initialOrderState, OrderReducer } from "../../reducer/index";
 
 const OrderContext = createContext({
@@ -21,4 +22,4 @@ const OrderProvider = ({ children }) => {
 
 const useOrder = () => useContext(OrderContext);
 
-export { OrderProvider, OrderContext, useOrder };
+export { OrderContext, OrderProvider, useOrder };

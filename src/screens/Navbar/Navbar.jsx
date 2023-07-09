@@ -1,9 +1,9 @@
-import { NavLink, useNavigate } from "react-router-dom";
-import { FaShoppingCart, FaRegUserCircle } from "react-icons/fa";
 import { BsFillHeartFill, BsSearch } from "react-icons/bs";
+import { FaRegUserCircle, FaShoppingCart } from "react-icons/fa";
+import { NavLink, useNavigate } from "react-router-dom";
 
-import styles from "./Navbar.module.css";
 import { useProduct } from "../../context/ProductContext/ProductContext";
+import styles from "./Navbar.module.css";
 
 const Navbar = () => {
   const { applyFilters, state } = useProduct();
@@ -74,3 +74,4 @@ const Navbar = () => {
 };
 
 export { Navbar };
+

@@ -162,17 +162,13 @@ If you have an idea to improve this, please fork the repository and submit a pul
 1. Fork the Project
 2. Create your Feature Branch 
 <br/>
-```css
-git checkout -b feature_name
-```
+- `git checkout -b feature_name`
 3. Commit your Changes
-```jsx
-git commit -m "a descriptive commit message"
-```
+<br/>
+- `git commit -m "a descriptive commit message"`
 4. Push to the Branch
-```jsx
-git push origin feature_name
-```
+<br/>
+- `git push origin feature_name`
 5. Open a Pull Request
 <br />
 

@@ -1,21 +1,31 @@
 import { useEffect, useState } from "react";
-import { scrollToTop } from "../../utils/ScrollToTop/scrollToTop";
 import styles from "./Profile.module.css";
 import { Address, Order, UserProfile } from "../../components";
 import { useOrder } from "../../context";
+import { useLocation } from "react-router";
 
 const Profile = () => {
   const [currTab, setCurrTab] = useState("profile");
-  const { orderState } = useOrder();
+  const { orderState, orderDispatch} = useOrder();
+
 
   const tabChangeHandler = (tabName) => {
     setCurrTab(tabName);
   };
 
-  useEffect(scrollToTop, [currTab]);
   useEffect(() => {
-    setCurrTab("orders");
-  }, [orderState.orders])
+    if(orderState.pathname === "checkout"){
+      setCurrTab("orders");
+      orderDispatch({
+        type: "RESET_PATHNAME",
+        payload: ""
+      });
+    }
+  }, [orderState.pathname]);
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, [currTab]);
 
   return (
     <section id="mainBody">

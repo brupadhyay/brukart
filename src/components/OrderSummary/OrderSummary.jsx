@@ -7,12 +7,13 @@ import { Popper, loadScript } from "../../utils/index";
 import { AddressCard } from "../AddressCard/AddressCard";
 import styles from "./OrderSummary.module.css";
 import { clearCartService } from "../../services/services";
-import { useNavigate } from "react-router";
+import { Navigate, useLocation, useNavigate } from "react-router";
 
 const OrderSummary = ({ setSteps }) => {
   const { state, dispatch } = useProduct();
   const { user, token } = useAuth();
   const { orderState, orderDispatch } = useOrder();
+  const location = useLocation();
 
   const [cartPriceDetails, setCartPriceDetails] = useState({});
   const navigate = useNavigate();
@@ -40,14 +41,13 @@ const OrderSummary = ({ setSteps }) => {
         "https://res.cloudinary.com/dmlhtqirp/image/upload/v1688840895/BRUKart/razorpay-image.png",
       handler: function (response) {
         toastNotification("SUCCESS", "Order Placed Successfully!");
-        navigate("/profile");
         Popper();
-        clearCartService(token);
+        clearCartService(state.cart, token);
         dispatch({
           type: "ADD_TO_CART",
           payload: [],
         });
-
+        navigate("/profile");
         orderDispatch({
           type: "ADD_NEW_ORDER",
           payload: {
@@ -57,6 +57,11 @@ const OrderSummary = ({ setSteps }) => {
             priceDetails: cartPriceDetails,
             address: state.selectedAddress,
           },
+        });
+
+        orderDispatch({
+          type: "SET_PATHNAME",
+          payload: "checkout"
         });
       },
       prefill: {

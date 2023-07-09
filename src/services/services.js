@@ -92,8 +92,16 @@ export const cartItemQuantity = async ({ productId, encodedToken, type }) =>
     }
   );
 
-export const clearCartService = (token) => {
-  return axios.delete("/api/user/cart/all", {
-    headers: { authorization: token },
-  });
+export const clearCartService = async (cart, token) => {
+  try {
+    for(let item of cart) {
+      await axios.delete(`/api/user/cart/${item._id}`, {
+        headers: {
+          authorization: token
+        }
+      })
+    }
+  } catch (error) {
+    console.log('error in clear cart service', error.message)
+  }
 };

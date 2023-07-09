@@ -1,4 +1,5 @@
 const initialOrderState = {
+  pathname: "",
   orders: [],
 };
 
@@ -8,6 +9,18 @@ const OrderReducer = (orderState, orderAction) => {
       return {
         ...orderState,
         orders: [...orderState.orders, orderAction.payload]
+      };
+
+    case "SET_PATHNAME":
+      return {
+        ...orderState,
+        pathname: orderAction.payload
+      };
+    
+    case "RESET_PATHNAME":
+      return {
+        ...orderState,
+        pathname: orderAction.payload
       };
 
     default:

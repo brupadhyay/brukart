@@ -2,15 +2,20 @@ import { useEffect, useState } from "react";
 import { scrollToTop } from "../../utils/ScrollToTop/scrollToTop";
 import styles from "./Profile.module.css";
 import { Address, Order, UserProfile } from "../../components";
+import { useOrder } from "../../context";
 
 const Profile = () => {
   const [currTab, setCurrTab] = useState("profile");
+  const { orderState } = useOrder();
 
   const tabChangeHandler = (tabName) => {
     setCurrTab(tabName);
   };
 
-  useEffect(scrollToTop, []);
+  useEffect(scrollToTop, [currTab]);
+  useEffect(() => {
+    setCurrTab("orders");
+  }, [orderState.orders])
 
   return (
     <section id="mainBody">

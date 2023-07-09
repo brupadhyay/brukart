@@ -41,6 +41,7 @@ const Signup = () => {
     );
 
     navigate("/");
+    toastNotification("SUCCESS", "Signed in Successfully!")
   };
 
   return (

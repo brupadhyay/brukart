@@ -204,11 +204,16 @@
     font-size: 2rem;
     color: white;
     background-color: var(--primary);
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
 
+.noProducts {
+    padding-left: 1rem;
+    font-weight: var(--fw-6);
+    color: var(--grey-5);
+}
 
 @media screen and (max-width: 900px) {
     .productPage {
@@ -233,5 +238,13 @@
         color: var(--grey-5);
         font-size: var(--fs-xxs-1);
         margin: 0;
+    }
+
+    .toggleBtn {
+        display: flex;
+    }
+
+    .noProducts {
+        padding: var(--space-xs);
     }
 }

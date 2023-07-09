@@ -39,7 +39,7 @@ const SingleProductCard = ({ game }) => {
 
     setCartBtnDisabled(true);
     if (token) {
-      toastNotification("INFO", `${game.title} successfully added to cart`);
+      toastNotification("SUCCESS", `${game.title} successfully added to cart`);
     } else {
       toastNotification("WARNING", "You're not logged-in");
       navigate("/login");
@@ -71,7 +71,7 @@ const SingleProductCard = ({ game }) => {
   const wishlistHandler = async () => {
     setWishlistBtnDisabled(true);
     if (token) {
-      toastNotification("INFO", `${game.title} added to wishlist`);
+      toastNotification("SUCCESS", `${game.title} added to wishlist`);
     } else {
       navigate("/login");
       toastNotification("WARNING", "You're not logged-in");
@@ -98,7 +98,7 @@ const SingleProductCard = ({ game }) => {
   const removeItemFromWishlist = async (id) => {
     setWishlistBtnDisabled(true);
     if (token) {
-      toastNotification("INFO", `${game.title} removed from wishlist`);
+      toastNotification("SUCCESS", `${game.title} removed from wishlist`);
     } else {
       toastNotification("WARNING", "You're not logged-in");
     }

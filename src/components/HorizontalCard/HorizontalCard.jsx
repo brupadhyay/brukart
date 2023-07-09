@@ -44,7 +44,7 @@ const HorizontalCard = ({ game }) => {
 
     setCartBtnDisabled(true);
     if (token) {
-      toastNotification("INFO", `${game.title} added to cart`);
+      toastNotification("SUCCESS", `${game.title} added to cart`);
     } else {
       toastNotification("WARNING", "You're not logged-in");
       navigate("/login");
@@ -74,7 +74,7 @@ const HorizontalCard = ({ game }) => {
   };
 
   const removeItemFromCart = async () => {
-    toastNotification("INFO", `${title} removed from cart`);
+    toastNotification("SUCCESS", `${title} removed from cart`);
     try {
       const {
         status,
@@ -132,7 +132,7 @@ const HorizontalCard = ({ game }) => {
   const wishlistHandler = async () => {
     setWishlistBtnDisabled(true);
     if (token) {
-      toastNotification("INFO", `${game.title} added to wishlist`);
+      toastNotification("SUCCESS", `${game.title} added to wishlist`);
     } else {
       navigate("/login");
       toastNotification("WARNING", "You're not logged-in");
@@ -159,7 +159,7 @@ const HorizontalCard = ({ game }) => {
   const removeItemFromWishlist = async (id) => {
     setWishlistBtnDisabled(true);
     if (token) {
-      toastNotification("INFO", `${game.title} removed from wishlist`);
+      toastNotification("SUCCESS", `${game.title} removed from wishlist`);
     } else {
       toastNotification("WARNING", "You're not logged-in");
     }
@@ -283,12 +283,18 @@ const HorizontalCard = ({ game }) => {
           </button>
           {pathname === "/cart" && (
             <button
-              className={` ${
-                isMobile ? styles.trashBtn : styles.removeFromCart
-              }`}
+              className={styles.removeFromCart1}
               onClick={removeItemFromCart}
             >
-              {isMobile ? <FaTrashAlt /> : "Remove From Cart"}
+              Remove from Cart
+            </button>
+          )}
+          {pathname === "/cart" && (
+            <button
+              className={styles.removeFromCart2}
+              onClick={removeItemFromCart}
+            >
+              Remove
             </button>
           )}
         </div>

@@ -39,7 +39,7 @@ const OrderSummary = ({ setSteps }) => {
       image:
         "https://res.cloudinary.com/dmlhtqirp/image/upload/v1688840895/BRUKart/razorpay-image.png",
       handler: function (response) {
-        toastNotification("SUCCESS", "Order Placed succesfull");
+        toastNotification("SUCCESS", "Order Placed Successfully!");
         navigate("/profile");
         Popper();
         clearCartService(token);

@@ -7,18 +7,14 @@
     margin: 1rem auto;
 }
 
-
 .asideOnToggle {
     display: initial;
     background-color: white;
     position: fixed;
-    left: -30px;
-    top: 5rem;
-    bottom: 0;
-    width: 280px;
-    height: 100vh;
+    left: -24px;
+    max-width: 400px;
     padding: var(--space-xs) var(--space-sm) var(--space-md);
-    transition: 0.1s ease-in-out all;
+    transition: 0.5s ease-out;
     transform: translateX(10%);
     z-index: 9999;
 }
@@ -52,6 +48,7 @@ h1 {
 }
 
 .closeBtn {
+    display: none;
     color: var(--red-6);
     background-color: initial;
     border: 0;
@@ -68,16 +65,20 @@ h1 {
     .asideOnToggle {
         display: block;
     }
+
+    .closeBtn {
+        display: initial;
+    }
 }
 
 @media screen and (max-width: 720px){
-    .asideOnToggle {
+    /* .asideOnToggle {
         top: 9.2rem;
-    }
+    } */
 }
 
 @media screen and (max-width: 500px){
     .asideOnToggle {
-        top: 8rem;
+        top: 106px;
     }
 }

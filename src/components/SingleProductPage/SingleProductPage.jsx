@@ -43,7 +43,7 @@ const SingleProductPage = () => {
 
     setCartBtnDisabled(true);
     if (token) {
-      toastNotification("INFO", `${product.title} successfully added to cart`);
+      toastNotification("SUCCESS", `${product.title} successfully added to cart`);
     } else {
       toastNotification("WARNING", "You're not logged-in");
       navigate("/login");
@@ -74,7 +74,7 @@ const SingleProductPage = () => {
   const wishlistHandler = async () => {
     setWishlistBtnDisabled(true);
     if (token) {
-      toastNotification("INFO", `${product.title} added to wishlist`);
+      toastNotification("SUCCESS", `${product.title} added to wishlist`);
     } else {
       navigate("/login");
       toastNotification("WARNING", "You're not logged-in");
@@ -101,7 +101,7 @@ const SingleProductPage = () => {
   const removeItemFromWishlist = async (id) => {
     setWishlistBtnDisabled(true);
     if (token) {
-      toastNotification("INFO", `${product.title} removed from wishlist`);
+      toastNotification("SUCCESS", `${product.title} removed from wishlist`);
     } else {
       toastNotification("WARNING", "You're not logged-in");
     }

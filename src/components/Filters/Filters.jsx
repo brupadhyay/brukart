@@ -17,11 +17,10 @@ const Filters = ({ isMobile, showFilters, toggleFilters }) => {
         <button onClick={clearFilters} className={styles.clearFilter}>
           Clear Filters
         </button>
-        {isMobile && (
-          <button className={styles.closeBtn} onClick={toggleFilters}>
-            <RxCross1 />
-          </button>
-        )}
+
+        <button className={styles.closeBtn} onClick={toggleFilters}>
+          <RxCross1 />
+        </button>
       </div>
 
       <h1>Categories</h1>

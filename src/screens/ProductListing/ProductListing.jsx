@@ -36,11 +36,9 @@ const ProductListing = () => {
         toggleFilters={toggleFilters}
       />
 
-      {isMobile && (
-        <button className={styles.toggleBtn} onClick={toggleFilters}>
-          <BiFilterAlt />
-        </button>
-      )}
+      <button className={styles.toggleBtn} onClick={toggleFilters}>
+        <BiFilterAlt />
+      </button>
 
       <div>
         <main className={styles.header}>
@@ -55,7 +53,7 @@ const ProductListing = () => {
           ))}
         </div>
         {filteredProducts.length === 0 && (
-          <h2>
+          <h2 className={styles.noProducts}>
             No products matched your search, dont't fret let's give it another
             shot
           </h2>

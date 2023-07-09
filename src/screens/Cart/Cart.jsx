@@ -4,6 +4,7 @@ import { useAuth, useProduct } from "../../context";
 import styles from "./Cart.module.css";
 import { HorizontalCard } from "../../components";
 import { PriceDetails } from "../../components/PriceDetails/PriceDetails";
+import { useEffect } from "react";
 
 const Cart = () => {
   const { state } = useProduct();

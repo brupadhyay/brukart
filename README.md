@@ -21,9 +21,6 @@
   <a href="https://github.com/brupadhyay/brukart/pulls" target="blank">
   <img src="https://img.shields.io/github/issues-pr/brupadhyay/brukart?color=important&style=for-the-badge" alt="brukart pull-requests"/>
   </a>
-  <a href="https://github.com/brupadhyay/brukart/graphs/code-frequency" target="blank">
-  <img src="https://img.shields.io/tokei/lines/github/brupadhyay/brukart?label=total-lines-of-code&color=9cf&style=for-the-badge" alt="brukart total lines of code"/>
-  </a>
 </p>
 
 <br />

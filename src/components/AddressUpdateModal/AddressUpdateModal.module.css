@@ -99,18 +99,27 @@
     color: white;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 720px){
 
     .modalContainer {
         width: 85%;
     }
 
-    .modalbody {
-        padding: var(--space-xs) var(--space-xs) 0;
+    .header {
+        padding: 0.4rem 0.8rem;
     }
 
-    .header {
-        padding: 0.8rem var(--space-xs);
+    .header > h1 {
+        font-size: var(--fs-xxs-2);
+    }
+
+    .closeBtn {
+        font-size: 1.2rem;
+        padding: 0;
+    }
+
+    .modalbody {
+        padding: var(--space-xxs) var(--space-xxs) 0;
     }
 
     .footer {
@@ -118,15 +127,16 @@
     }
 
     .updateBtn, .dummyBtn {
-        font-size: var(--fs-xxs-1);
+        font-size: var(--fs-xxxs-2);
         padding: 0.4rem 0.8rem;
     }
 
     .label {
-        font-size: var(--fs-xxs-2);
+        font-size: var(--fs-xxxs-2);
     }
 
     .input {
-        font-size: var(--fs-xxs-1);
+        font-size: var(--fs-xxxs-2);
+        padding: 0.4rem;
     }
 }

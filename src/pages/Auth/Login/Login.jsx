@@ -43,8 +43,8 @@ const Login = () => {
 
   useEffect(() => {
     if (token) {
-      toastNotification("SUCCESS", "Successfully Logged In!");
-      navigate(location.state.from.pathname || "/");
+      toastNotification("SUCCESS", "Logged in Successfully!");
+      navigate(location?.state?.from?.pathname || "/");
     }
   }, [token]);
 

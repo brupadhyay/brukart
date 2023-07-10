@@ -1,29 +1,12 @@
-import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import { CategoryCard } from "../index";
 import styles from "./ShopByCategory.module.css";
+import { useProduct } from "../../context";
 
 const ShopByCategory = () => {
-  const [categories, setCategories] = useState([]);
-
-  const getCategories = async () => {
-    try {
-      const responseJson = await fetch("/api/categories");
-      const { status } = responseJson;
-      const { categories } = await responseJson.json();
-
-      if (status === 200 || status === 201) {
-        setCategories([...categories]);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getCategories();
-  }, []);
+  
+  const { state } = useProduct(); 
 
   return (
     <>
@@ -34,7 +17,7 @@ const ShopByCategory = () => {
         </NavLink>
       </div>
       <section className={styles.categorySection}>
-        {categories.map(({ _id, categoryName, imageSrc }) => (
+        {state?.categories?.map(({ _id, categoryName, imageSrc }) => (
           <CategoryCard
             key={_id}
             imagesrc={imageSrc}

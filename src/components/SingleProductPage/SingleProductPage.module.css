@@ -52,6 +52,7 @@
 
 .categoryWrapper {
     display: flex;
+    flex-wrap: wrap;
     margin: var(--space-xxs) 0;
     width: 100%;
     gap: 0.15rem;

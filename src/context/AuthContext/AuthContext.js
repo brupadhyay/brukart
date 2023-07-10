@@ -71,7 +71,7 @@ const AuthContextProvider = ({ children }) => {
     localStorage.removeItem("login");
     setToken(null);
     setUser(null);
-    toastNotification("SUCCESS", "Logout Successful!")
+    toastNotification("SUCCESS", "Logout Successful!");
   }
 
   return (

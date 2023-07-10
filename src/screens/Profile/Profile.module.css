@@ -14,13 +14,6 @@
     font-size: var(--fs-sm-1);
     padding: var(--space-xs) var(--space-lg);
     text-transform: uppercase;
-    transition: box-shadow 0.2s ease-in;
-}
-
-
-.navBtn:hover {
-    border-bottom-color: var(--dark);
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;;
 }
 
 .activeNavBtn {

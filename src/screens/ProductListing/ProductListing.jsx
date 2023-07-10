@@ -5,6 +5,7 @@ import { Filters } from "../../components/Filters/Filters";
 import { SingleProductCard } from "../../components/SingleProductCard/SingleProductCard";
 import { useProduct } from "../../context/ProductContext/ProductContext";
 import styles from "./ProductListing.module.css";
+import { Loader } from "../../components";
 
 
 const ProductListing = () => {
@@ -12,6 +13,19 @@ const ProductListing = () => {
 
   const [isMobile, setIsMobile] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if(filteredProducts.length === 0){
+      setIsLoading(true);
+      const loaderClosingId = setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
+  
+      return () => clearTimeout(loaderClosingId);
+    }    
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -31,6 +45,7 @@ const ProductListing = () => {
 
   return (
     <div className={styles.productPage}>
+      {isLoading && <Loader />}
       <Filters
         isMobile={isMobile}
         showFilters={showFilters}

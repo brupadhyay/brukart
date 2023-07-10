@@ -10,6 +10,27 @@ const ProductProvider = ({ children }) => {
 
   const localStorageUser = JSON.parse(localStorage?.getItem("login"))
 
+
+  const getCategories = async () => {
+    try {
+      const response = await fetch("/api/categories");
+
+      const { categories } = await response.json();
+
+      const { status } = response;
+
+      if(status === 200 || status === 201){
+        dispatch({
+          type: 'SET_CATEGORIES',
+          payload: categories
+        });
+      }
+
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   const fetchProducts = async () => {
     try {
       const response = await fetch("/api/products");
@@ -63,6 +84,7 @@ const ProductProvider = ({ children }) => {
     fetchProducts();
     getCartItemsHandler();
     getWisthlistItemsHandler();
+    getCategories();
   }, []);
 
   const filteredProducts = filteringUserChoice(state);

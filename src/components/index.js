@@ -13,3 +13,4 @@ export { AddressCard } from "./AddressCard/AddressCard";
 export { AddressUpdateModal } from "./AddressUpdateModal/AddressUpdateModal";
 export { OrderSummary } from "./OrderSummary/OrderSummary";
 export { Order } from "./Order/Order"; 
+export { Loader } from "./Loader/Loader"

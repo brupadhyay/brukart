@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router";
 
 import { TbTruckDelivery } from "react-icons/tb";
 import { useAuth, useProduct } from "../../context";
+import { Loader } from "../index"
 import {
   deleteWishlistItem,
   postCartItem,
@@ -18,9 +19,12 @@ import styles from "./SingleProductPage.module.css";
 const SingleProductPage = () => {
   const { productId } = useParams();
 
-  const [product, setProduct] = useState();
+  const [product, setProduct] = useState({});
   const [cartBtnDisabled, setCartBtnDisabled] = useState(false);
   const [wishlistBtnDisabled, setWishlistBtnDisabled] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(true);
+
 
   const navigate = useNavigate();
 
@@ -134,17 +138,20 @@ const SingleProductPage = () => {
       try {
         const productFromResponse = await getSingleProductHandler(productId);
         setProduct(productFromResponse);
+        setIsLoading(false);
       } catch (error) {
-        console.log(error.message);
+        setIsLoading(true);
+        toastNotification("ERROR", "Something went wrong! Please try again later");
       }
     })();
+
   }, []);
 
-  if (!product) return <p>Loading...</p>;
 
   return (
     <div id="mainBody">
-      <article className={styles.productCard}>
+      {isLoading && <Loader /> }
+      <article className={styles.productCard}>        
         {product.discount !== "0" && (
           <div className={styles.cardBadge}>
             <BsFillBookmarkFill className={styles.bookmarkBadge} />
@@ -159,8 +166,8 @@ const SingleProductPage = () => {
           />
         </div>
         <div className={styles.detailsWrapper}>
-          <h5 className={styles.title}>{product.title}</h5>
-          <small className={styles.vendor}>{product.vendor}</small>
+          <h5 className={styles.title}>{product?.title}</h5>
+          <small className={styles.vendor}>{product?.vendor}</small>
           <div className={styles.categoryWrapper}>
             {product.categoryName &&
               product.categoryName.map((category) => (

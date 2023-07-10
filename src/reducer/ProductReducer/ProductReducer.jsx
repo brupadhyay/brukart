@@ -4,6 +4,7 @@ const initialState = {
   products: [],
   cart: [],
   wishlist: [],
+  categories: [],
   filters: {
     category: [],
     rating: "",
@@ -32,6 +33,12 @@ const ProductReducer = (state, action) => {
       return {
         ...state,
         products: action.payload,
+      };
+
+    case 'SET_CATEGORIES':
+      return {
+        ...state,
+        categories: action.payload
       };
     
     case "ADD_TO_CART":

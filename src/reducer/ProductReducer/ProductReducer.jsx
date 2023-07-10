@@ -45,13 +45,20 @@ const ProductReducer = (state, action) => {
       return {
         ...state,
         cart: action.payload
-      }
+      };
 
     case "ADD_TO_WISHLIST":
       return {
         ...state,
         wishlist: action.payload
-      }
+      };
+
+    case "CLEAR_CART_AND_WISHLIST":
+      return {
+        ...state,
+        cart: action.payload,
+        wishlist: action.payload
+      };
 
     case "CHANGE_FILTERS":
       return {
@@ -75,8 +82,6 @@ const ProductReducer = (state, action) => {
       };
 
     case "ADD_ADDRESS":
-      console.log("add",action.payload)
-      
       return {
         ...state,
         addressList: [...state.addressList, action.payload]
@@ -96,6 +101,12 @@ const ProductReducer = (state, action) => {
       return {
         ...state,
         addressList: state.addressList.filter(({ id }) => id !== action.payload)
+      };
+
+    case 'CLEAR_USER_ADDRESS':
+      return {
+        ...state,
+        addressList: state.addressList.slice(0,1)
       };
 
     case "ORDER_ADDRESS":

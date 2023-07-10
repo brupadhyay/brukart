@@ -5,9 +5,9 @@
 .modal {
     background-color: white;
     border-radius: var(--br-sm);
-    box-shadow: var(--bs-md);
+    box-shadow: var(--bs-xs);
     flex-direction: column;
-    max-width: min(85%, 500px);
+    width: min(85%, 500px);
     margin: var(--space-sm) auto;
 }
 
@@ -102,7 +102,7 @@
     padding: 0.4rem var(--space-xs);
     border-radius: var(--br-xs);
     text-transform: capitalize;
-    transition: 0.25s ease-in-out;
+    transition: 0.3s ease-in;
 }
 
 .updateBtn:hover {

@@ -12,8 +12,8 @@ const PriceDetails = () => {
   const [cartPrice, setCartPrice] = useState({});
 
   useEffect(() => {
-    setCartPrice(getCartPrice(state.cart));
-  }, [state.cart]);
+    setCartPrice(getCartPrice(state?.cart));
+  }, [state?.cart]);
 
   return (
     <div className={styles.card}>

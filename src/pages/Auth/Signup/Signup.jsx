@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 import { useAuth } from "../../../context/index";
 import { toastNotification } from "../../../utils";

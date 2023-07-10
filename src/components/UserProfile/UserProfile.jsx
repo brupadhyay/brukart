@@ -1,8 +1,22 @@
-import { useAuth } from "../../context";
+import { useAuth, useOrder, useProduct } from "../../context";
 import styles from "./UserProfile.module.css";
 
 const UserProfile = () => {
+  const { dispatch } = useProduct();
+  const { orderDispatch } = useOrder(); 
   const { user, logoutUser } = useAuth();
+
+  const logoutHandler = () => {
+    logoutUser();
+    dispatch({
+      type: 'CLEAR_CART_AND_WISHLIST',
+      payload: []
+    });
+    dispatch({
+      type: 'CLEAR_USER_ADDRESS',
+      payload: ''
+    });
+  }
 
   return (
     <section>
@@ -21,7 +35,7 @@ const UserProfile = () => {
             <td className={`email ${styles.tableData}`}>{user.email}</td>
           </tr>
           <tr className={styles.tableRow}>
-            <button onClick={() => logoutUser()} className={styles.logout}>Logout</button>
+            <button onClick={() => logoutHandler()} className={styles.logout}>Logout</button>
           </tr>
         </tbody>
       </table>

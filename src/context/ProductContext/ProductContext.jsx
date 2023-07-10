@@ -2,12 +2,14 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 
 import { ProductReducer, initialState } from "../../reducer/index";
 import { filteringUserChoice } from "../../utils/filteringUserChoice";
+import { useAuth } from "../AuthContext/AuthContext";
 
 const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(ProductReducer, initialState);
 
+  const { token } = useAuth();
   const localStorageUser = JSON.parse(localStorage?.getItem("login"))
 
 
@@ -85,7 +87,7 @@ const ProductProvider = ({ children }) => {
     getCartItemsHandler();
     getWisthlistItemsHandler();
     getCategories();
-  }, []);
+  }, [token]);
 
   const filteredProducts = filteringUserChoice(state);
 

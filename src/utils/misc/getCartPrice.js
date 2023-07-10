@@ -1,8 +1,8 @@
 const getCartPrice = (cart, coupon) => {
+  
   const totalItems = cart.reduce((acc, curr) => (acc += curr.qty), 0);
 
-  const totalPrice = cart
-    .reduce((acc, curr) => (acc += Number(curr.price) * Number(curr.qty)), 0)
+  const totalPrice = cart.reduce((acc, curr) => (acc += Number(curr.price) * Number(curr.qty)), 0)
     .toFixed(2);
 
   const totalDiscount = (

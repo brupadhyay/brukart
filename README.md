@@ -178,6 +178,7 @@ Special thanks to you guys who helped review BRUKart.
     <td><a href="https://github.com/jatinsingh08" >Jatin Singh</a>
     </td>
     <td><a href="https://github.com/esarvesh11">Sarvesh Shirude </a></td>
+    <td><a href="https://github.com/swastikpatro">Swastik Patro</a></td>
   </tr>
 </table>
 

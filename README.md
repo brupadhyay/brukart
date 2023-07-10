@@ -59,6 +59,7 @@
 ## **🎙 About The Project**
 
 <p align="center">
+  <img src="./src/assets/walkthrough_brukart.gif" width="100%">
 </p>
 
 <br />

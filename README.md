@@ -159,14 +159,11 @@ If you have an idea to improve this, please fork the repository and submit a pul
 
 1. Fork the Project
 2. Create your Feature Branch 
-<br/>
-- `git checkout -b feature_name`
+#### `git checkout -b feature_name`
 3. Commit your Changes
-<br/>
-- `git commit -m "a descriptive commit message"`
+#### `git commit -m "a descriptive commit message"`
 4. Push to the Branch
-<br/>
-- `git push origin feature_name`
+#### `git push origin feature_name`
 5. Open a Pull Request
 <br />
 
@@ -174,7 +171,7 @@ If you have an idea to improve this, please fork the repository and submit a pul
 
 ## **🙏 Acknowledgements**
 
-Thank you to everyone who helped review BRUKart.
+Special thanks to you guys who helped review BRUKart.
 
 <table>
   <tr>

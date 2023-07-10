@@ -33,6 +33,8 @@
 @media screen and (max-width: 950px){
     .categorySection {
         margin-right: -1.2rem;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
 }
 

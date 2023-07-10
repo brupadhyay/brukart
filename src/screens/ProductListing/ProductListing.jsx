@@ -14,10 +14,6 @@ const ProductListing = () => {
   const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0,0);
-  }, [filteredProducts]);
-
-  useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 900);
     };

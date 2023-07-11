@@ -141,4 +141,9 @@
     .checkoutWrapper {
         padding: var(--space-xs);
     }
+
+    .addNewBtn {
+        padding: 0.4rem 0.8rem;
+        font-size: var(--fs-xxs-1);
+    }
 }

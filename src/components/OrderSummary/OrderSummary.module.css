@@ -3,7 +3,7 @@
     border-radius: var(--br-md);
     margin: var(--space-sm) auto;
     padding: var(--space-xs) var(--space-sm);
-    width: min(85%, 500px);
+    width: min(85%, 600px);
 }
 
 .productsWrapper {
@@ -112,5 +112,21 @@
     .sectionHeading {
         font-size: var(--fs-xxs-2);
     }
+}
+
+@media screen and (max-width: 500px){
+
+    .tableData {
+        font-size: var(--fs-xxs-1);
+    }
+
+    .productTitle, .btnClass {
+        font-size: var(--fs-xxs-2);
+    }
+
+    .priceQty, .discountNote {
+        font-size: var(--fs-xxxs-2);
+    }
+
 }
 

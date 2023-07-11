@@ -148,14 +148,14 @@ const OrderSummary = ({ setSteps }) => {
       </div>
       <div className={styles.btnsWrapper}>
         <button
-          className="button btn-solid-primary"
+          className={`button btn-solid-primary ${styles.btnClass}`}
           onClick={() => setSteps((prev) => prev - 1)}
         >
           Back
         </button>
         <button
           onClick={() => displayRazorpay()}
-          className="button btn-solid-primary"
+          className={`button btn-solid-primary ${styles.btnClass}`}
         >
           Place Order
         </button>

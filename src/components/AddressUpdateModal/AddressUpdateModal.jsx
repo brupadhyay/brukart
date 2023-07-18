@@ -146,7 +146,7 @@ const AddressUpdateModal = ({ setAddressModal, defaultAddress = "" }) => {
               <label className={styles.label}>Pincode</label>
               <input
                 className={styles.input}
-                type="text"
+                type="tel"
                 value={address.pincode}
                 placeholder="223131"
                 onChange={(event) =>
@@ -160,7 +160,7 @@ const AddressUpdateModal = ({ setAddressModal, defaultAddress = "" }) => {
               <label className={styles.label}>Mobile</label>
               <input
                 className={styles.input}
-                type="text"
+                type="tel"
                 value={address.mobile}
                 placeholder="4040404040"
                 onChange={(event) =>

@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 import { ProductReducer, initialState } from "../../reducer/index";
 import { filteringUserChoice } from "../../utils/filteringUserChoice";
 import { useAuth } from "../AuthContext/AuthContext";
+import { toastNotification } from "../../utils";
 
 const ProductContext = createContext();
 
@@ -29,7 +30,8 @@ const ProductProvider = ({ children }) => {
       }
 
     } catch (error) {
-      console.error(error.message);
+      console.log(error.message);
+      toastNotification("ERROR", "Error in retrieving categories!");
     }
   };
 

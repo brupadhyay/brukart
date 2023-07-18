@@ -6,14 +6,14 @@ import { useNavigate, useParams } from "react-router";
 
 import { TbTruckDelivery } from "react-icons/tb";
 import { useAuth, useProduct } from "../../context";
-import { Loader } from "../index"
+import { Loader } from "../index";
 import {
   deleteWishlistItem,
   postCartItem,
   postWishlistItem,
 } from "../../services/services";
 import { toastNotification } from "../../utils";
-import { getSingleProductHandler } from "../../utils/misc/getSingleProductHandler";
+import { getSingleProductHandler } from "../../utils/miscellaneous/getSingleProductHandler";
 import styles from "./SingleProductPage.module.css";
 
 const SingleProductPage = () => {
@@ -24,7 +24,6 @@ const SingleProductPage = () => {
   const [wishlistBtnDisabled, setWishlistBtnDisabled] = useState(false);
 
   const [isLoading, setIsLoading] = useState(true);
-
 
   const navigate = useNavigate();
 
@@ -47,7 +46,10 @@ const SingleProductPage = () => {
 
     setCartBtnDisabled(true);
     if (token) {
-      toastNotification("SUCCESS", `${product.title} successfully added to cart`);
+      toastNotification(
+        "SUCCESS",
+        `${product.title} successfully added to cart`
+      );
     } else {
       toastNotification("WARNING", "You're not logged-in");
       navigate("/login");
@@ -141,17 +143,18 @@ const SingleProductPage = () => {
         setIsLoading(false);
       } catch (error) {
         setIsLoading(true);
-        toastNotification("ERROR", "Something went wrong! Please try again later");
+        toastNotification(
+          "ERROR",
+          "Something went wrong! Please try again later"
+        );
       }
     })();
-
   }, []);
-
 
   return (
     <div id="mainBody">
-      {isLoading && <Loader /> }
-      <article className={styles.productCard}>        
+      {isLoading && <Loader />}
+      <article className={styles.productCard}>
         {product.discount !== "0" && (
           <div className={styles.cardBadge}>
             <BsFillBookmarkFill className={styles.bookmarkBadge} />
@@ -201,9 +204,9 @@ const SingleProductPage = () => {
           </div>
           <div className={styles.btnsWrapper}>
             <button
-              className={`${
-                cartBtnDisabled && styles.disabledBtn
-              } ${presentInCart && styles.gotocart } button btn-solid-dark ${styles.buyButton}`}
+              className={`${cartBtnDisabled && styles.disabledBtn} ${
+                presentInCart && styles.gotocart
+              } button btn-solid-dark ${styles.buyButton}`}
               disabled={cartBtnDisabled}
               onClick={cartHandler}
             >
@@ -238,4 +241,3 @@ const SingleProductPage = () => {
 };
 
 export { SingleProductPage };
-

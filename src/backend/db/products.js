@@ -187,4 +187,70 @@ export const products = [
     imageSrc:
       "https://res.cloudinary.com/dmlhtqirp/image/upload/v1686514394/BRUKart/frontline-commando.jpg",
   },
+  {
+    _id: "14",
+    title: "Soccer SuperStar",
+    desc: "it is an arcade-style soccer title that boasts simple and intuitive swipe-based controls",
+    categoryName: ["sports", "action"],
+    vendor: "Real Freestyle Soccer",
+    price: "30",
+    discount: "10",
+    isLatest: false,
+    isTop: true,
+    rating: 4.1,
+    imageSrc: "https://res.cloudinary.com/dmlhtqirp/image/upload/v1689708429/BRUKart/soccer_superstar.png"
+  },
+  {
+    _id: "15",
+    title: "Shadow Fight 3",
+    desc: "Legend has it that a hero will come to end the fight for shadow energy",
+    categoryName: ["adventure", "action"],
+    vendor: "Banzai Games",
+    price: "60",
+    discount: "20",
+    isLatest: false,
+    isTop: true,
+    rating: 4.8,
+    imageSrc: "https://res.cloudinary.com/dmlhtqirp/image/upload/v1689708342/BRUKart/shadow_fight.png"
+  },
+  {
+    _id: "16",
+    title: "Rocket Arena",
+    desc: "third-person shooter online video game",
+    categoryName: ["adventure", "action"],
+    vendor: "Final Strike Games",
+    price: "100",
+    discount: "0",
+    isLatest: false,
+    isTop: true,
+    rating: 5.0,
+    imageSrc: "https://res.cloudinary.com/dmlhtqirp/image/upload/v1689708600/BRUKart/rocket-arena.jpg"
+  },
+  {
+    _id: "17",
+    title: "Plants vs Zombies",
+    desc: "Get ready to soil your plants as a mob of fun-loving zombies is about to invade your home.",
+    categoryName: ["simulation", "action"],
+    vendor: "PopCap Games",
+    price: "20",
+    discount: "10",
+    isLatest: false,
+    isTop: true,
+    rating: 3.0,
+    imageSrc: "https://res.cloudinary.com/dmlhtqirp/image/upload/v1689708663/BRUKart/plants-vs-zombies.jpg"
+  },
+  {
+    _id: "18",
+    title: "Mega Baseball",
+    desc: "supports 1 to 4 players in local competitive or co-operative play.",
+    categoryName: ["sports", "action"],
+    vendor: "Metalhead Software Inc.",
+    price: "75",
+    discount: "25",
+    isLatest: true,
+    isTop: true,
+    rating: 4.5,
+    imageSrc: "https://res.cloudinary.com/dmlhtqirp/image/upload/v1689708739/BRUKart/megabaseball.png"
+  },
+
 ];

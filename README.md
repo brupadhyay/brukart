@@ -174,17 +174,14 @@ If you have an idea to improve this, please fork the repository and submit a pul
 
 Special thanks to you guys who helped review BRUKart.
 
-<table>
-  <tr>
-    <td><a href="https://github.com/jatinsingh08" >Jatin Singh</a>
-    </td>
-    <td><a href="https://github.com/esarvesh11">Sarvesh Shirude </a></td>
-    <td><a href="https://github.com/swastikpatro">Swastik Patro</a></td>
-  </tr>
-</table>
+SrNo. | Name | GitHub |
+----- | ---- | ------ |
+1 | Jatin Singh | [Link](https://github.com/jatinsingh08) |
+2 | Sarvesh Shirude | [Link](https://github.com/esarvesh11)|
+3 | Swastik Patro | [Link](https://github.com/swastikpatro)|
 
 
-<hr/>
+----
 
 <!-- SOCIAL LINKS -->
 ## **🔎 Social Links**

@@ -15,6 +15,7 @@ const PriceRangeFilter = () => {
       </div>
       <div className={styles.range}>
         <input
+          className={styles.inputRange}
           type="range"
           name="priceRange"
           min={10}

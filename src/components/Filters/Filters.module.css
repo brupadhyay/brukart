@@ -25,13 +25,13 @@ h1 {
 
 .clearFilter {
     background-color: var(--red-2);
-    border: 1px solid var(--red-3);
     box-shadow: var(--bs-xxs);
     transition: 0.2s ease-in;
     font-size: var(--fs-xxs-1);
     cursor: pointer;
     padding: var(--pd-xxs);
     border-radius: 0.8rem;
+    border: 0;
 }
 
 .clearFilter:hover {

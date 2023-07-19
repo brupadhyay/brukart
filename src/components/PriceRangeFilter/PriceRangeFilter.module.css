@@ -4,6 +4,10 @@
     justify-content: space-between;
 }
 
-.range > input {
+
+.inputRange {
     width: 100%;
+    accent-color: var(--primary);
+    cursor: pointer;
 }
+
